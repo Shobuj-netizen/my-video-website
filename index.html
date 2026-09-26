@@ -88,14 +88,51 @@ header h1{
 /* VIDEO CARD */
 
 .card{
-    background:#222;
-    border-radius:8px;
+    background:#1c1c1c;
+    border-radius:10px;
     overflow:hidden;
     cursor:pointer;
+    border:1px solid #292929;
+    transition:0.2s;
 }
 
 .card:hover{
-    background:#292929;
+    background:#242424;
+    transform:translateY(-2px);
+}
+
+.thumbnail{
+    width:100%;
+    height:220px;
+    background:#222;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-info{
+    padding:13px;
+}
+
+.card-info h3{
+    margin:0 0 6px;
+    font-size:18px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.card-info p{
+    margin:0;
+    color:#999;
+    font-size:13px;
 }
 
 
