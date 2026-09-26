@@ -2,20 +2,14 @@
 <html lang="bn">
 
 <head>
-    
+
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Viral Link</title>
 
-
 <style>
-
-/* =========================
-   BASIC
-========================= */
 
 *{
     box-sizing:border-box;
@@ -29,9 +23,7 @@ body{
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
     background:#222;
@@ -44,9 +36,8 @@ header h1{
     font-size:24px;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+
+/* CONTAINER */
 
 .container{
     width:95%;
@@ -55,9 +46,7 @@ header h1{
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search{
     margin:15px 0;
@@ -73,9 +62,7 @@ header h1{
 }
 
 
-/* =========================
-   VIDEO LIST
-========================= */
+/* VIDEO LIST */
 
 .video-list{
     display:flex;
@@ -84,9 +71,7 @@ header h1{
 }
 
 
-/* =========================
-   VIDEO CARD
-========================= */
+/* VIDEO CARD */
 
 .card{
     background:#222;
@@ -100,19 +85,15 @@ header h1{
 }
 
 
-/* =========================
-   THUMBNAIL
-========================= */
+/* THUMBNAIL */
 
 .thumbnail{
     width:100%;
     height:230px;
     background:#333;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     overflow:hidden;
 }
 
@@ -128,9 +109,7 @@ header h1{
 }
 
 
-/* =========================
-   VIDEO INFO
-========================= */
+/* VIDEO INFO */
 
 .card-info{
     padding:12px;
@@ -147,9 +126,7 @@ header h1{
 }
 
 
-/* =========================
-   BANNER AD
-========================= */
+/* BANNER AD */
 
 .banner-ad{
     width:100%;
@@ -166,63 +143,45 @@ header h1{
 .ad-box{
     width:100%;
     min-height:90px;
-
     background:#222;
-
     border:1px dashed #555;
     border-radius:5px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:#888;
     font-size:14px;
 }
 
 
-/* =========================
-   TOP AD
-========================= */
+/* TOP AD */
 
 .ad{
     background:#222;
     border:1px dashed #555;
     color:#888;
-
     text-align:center;
-
     padding:18px;
     margin:15px 0;
 }
 
 
-/* =========================
-   PAGINATION
-========================= */
+/* PAGINATION */
 
 .pagination{
     display:flex;
-
     justify-content:center;
-
     gap:7px;
-
     margin:25px 0;
-
     flex-wrap:wrap;
 }
 
 .pagination button{
     background:#333;
     color:#fff;
-
     border:none;
-
     padding:9px 13px;
-
     border-radius:5px;
-
     cursor:pointer;
 }
 
@@ -231,83 +190,56 @@ header h1{
 }
 
 
-/* =========================
-   VIDEO PLAYER
-========================= */
+/* VIDEO PLAYER */
 
 #player{
     display:none;
-
     background:#000;
-
     padding:10px;
-
     position:fixed;
-
     inset:0;
-
     z-index:9999;
-
     overflow-y:auto;
 }
 
 .player-box{
     max-width:900px;
-
     margin:auto;
 }
 
 
-/* =========================
-   BACK BUTTON
-========================= */
+/* BACK BUTTON */
 
 .close-btn{
     background:#e50914;
-
     color:#fff;
-
     border:none;
-
     padding:10px 16px;
-
     border-radius:5px;
-
     cursor:pointer;
-
     margin-bottom:10px;
-
     font-size:15px;
 }
 
 
-/* =========================
-   VIDEO
-========================= */
+/* VIDEO */
 
 #videoPlayer{
     width:100%;
-
     max-height:70vh;
-
     background:#000;
 }
 
 
-/* =========================
-   PLAYER TITLE
-========================= */
+/* PLAYER TITLE */
 
 .player-title{
     font-size:20px;
-
     margin:12px 0;
 }
 
 
-/* =========================
-   RECOMMENDED
-========================= */
+/* RECOMMENDED */
 
 .recommended{
     margin-top:20px;
@@ -317,69 +249,44 @@ header h1{
     font-size:20px;
 }
 
-
-/* =========================
-   RECOMMENDED LIST
-========================= */
-
 .recommended-list{
     display:flex;
-
     flex-direction:column;
-
     gap:10px;
 }
 
 
-/* =========================
-   RECOMMENDED CARD
-========================= */
+/* RECOMMENDED CARD */
 
 .recommend-card{
     display:flex;
-
     background:#222;
-
     border-radius:6px;
-
     overflow:hidden;
-
     cursor:pointer;
 }
 
 
-/* =========================
-   RECOMMENDED THUMB
-========================= */
+/* RECOMMENDED THUMB */
 
 .recommend-thumb{
     width:130px;
-
     height:80px;
-
     background:#333;
-
     flex-shrink:0;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
 .recommend-thumb img{
     width:100%;
-
     height:100%;
-
     object-fit:cover;
 }
 
 
-/* =========================
-   RECOMMENDED INFO
-========================= */
+/* RECOMMENDED INFO */
 
 .recommend-info{
     padding:10px;
@@ -387,14 +294,11 @@ header h1{
 
 .recommend-info h3{
     margin:0;
-
     font-size:15px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -404,7 +308,6 @@ header h1{
 
     .recommend-thumb{
         width:110px;
-
         height:70px;
     }
 
@@ -414,11 +317,6 @@ header h1{
 
 }
 
-
-/* =========================
-   END CSS
-========================= */
-
 </style>
 
 </head>
@@ -427,21 +325,16 @@ header h1{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header>
 
-    <h1>🎬 My Video Website</h1>
+    <h1>🔥 Viral Link</h1>
 
 </header>
 
 
-
-<!-- =========================
-     MAIN
-========================= -->
+<!-- MAIN -->
 
 <div class="container">
 
@@ -460,7 +353,6 @@ header h1{
     </div>
 
 
-
     <!-- TOP AD -->
 
     <div class="ad">
@@ -470,14 +362,12 @@ header h1{
     </div>
 
 
-
     <!-- VIDEO LIST -->
 
     <div
         id="videoList"
         class="video-list">
     </div>
-
 
 
     <!-- PAGINATION -->
@@ -491,18 +381,14 @@ header h1{
 </div>
 
 
-
-<!-- =========================
-     VIDEO PLAYER
-========================= -->
+<!-- VIDEO PLAYER -->
 
 <div id="player">
-
 
     <div class="player-box">
 
 
-        <!-- BACK -->
+        <!-- BACK BUTTON -->
 
         <button
             class="close-btn"
@@ -511,7 +397,6 @@ header h1{
             ← Back
 
         </button>
-
 
 
         <!-- PLAYER AD -->
@@ -523,14 +408,12 @@ header h1{
         </div>
 
 
-
         <!-- TITLE -->
 
         <div
             id="playerTitle"
             class="player-title">
         </div>
-
 
 
         <!-- VIDEO -->
@@ -550,7 +433,6 @@ header h1{
         </video>
 
 
-
         <!-- RECOMMENDED -->
 
         <div class="recommended">
@@ -558,7 +440,6 @@ header h1{
             <h2>
                 Recommended Videos
             </h2>
-
 
             <div
                 id="recommendedList"
@@ -573,17 +454,12 @@ header h1{
 </div>
 
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
 
-/* =========================
-   VIDEO DATA
-========================= */
+/* VIDEO DATA */
 
 const videos = [
 
@@ -662,11 +538,6 @@ const videos = [
 ];
 
 
-
-/* =========================
-   SETTINGS
-========================= */
-
 const videosPerPage = 10;
 
 let currentPage = 1;
@@ -674,60 +545,34 @@ let currentPage = 1;
 let filteredVideos = videos;
 
 
-
-/* =========================
-   SHOW VIDEOS
-========================= */
+/* SHOW VIDEOS */
 
 function showVideos(){
 
     const list =
-        document.getElementById(
-            "videoList"
-        );
-
+        document.getElementById("videoList");
 
     list.innerHTML = "";
 
-
     const start =
-        (currentPage - 1)
-        * videosPerPage;
-
+        (currentPage - 1) * videosPerPage;
 
     const end =
         start + videosPerPage;
 
-
     const pageVideos =
-        filteredVideos.slice(
-            start,
-            end
-        );
+        filteredVideos.slice(start,end);
 
 
-
-    pageVideos.forEach(
-        (video,index) => {
-
-
-        /* =====================
-           VIDEO CARD
-        ===================== */
+    pageVideos.forEach((video,index)=>{
 
         const card =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
+
+        card.className = "card";
 
 
-        card.className =
-            "card";
-
-
-        card.onclick =
-            function(){
-
+        card.onclick = function(){
 
             if(video.file){
 
@@ -742,24 +587,13 @@ function showVideos(){
         };
 
 
-
-        /* =====================
-           THUMBNAIL
-        ===================== */
-
         const thumbnail =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
-
-        thumbnail.className =
-            "thumbnail";
-
+        thumbnail.className = "thumbnail";
 
 
         if(video.file){
-
 
             thumbnail.innerHTML = `
 
@@ -771,15 +605,14 @@ function showVideos(){
 
             `;
 
-
             generateThumbnail(
                 video.file,
                 thumbnail
             );
 
+        }
 
-        }else{
-
+        else{
 
             thumbnail.innerHTML = `
 
@@ -794,68 +627,36 @@ function showVideos(){
         }
 
 
-
-        /* =====================
-           VIDEO INFO
-        ===================== */
-
         const info =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
-
-        info.className =
-            "card-info";
+        info.className = "card-info";
 
 
         info.innerHTML = `
 
-            <h3>
-                ${video.title}
-            </h3>
+            <h3>${video.title}</h3>
 
-            <p>
-                ভিডিও
-            </p>
+            <p>ভিডিও</p>
 
         `;
 
 
+        card.appendChild(thumbnail);
 
-        card.appendChild(
-            thumbnail
-        );
+        card.appendChild(info);
 
-
-        card.appendChild(
-            info
-        );
+        list.appendChild(card);
 
 
-        list.appendChild(
-            card
-        );
+        /* EVERY 2 VIDEOS = AD */
 
-
-
-        /* =====================
-           EVERY 2 VIDEOS = AD
-        ===================== */
-
-        if(
-            (index + 1) % 2 === 0
-        ){
-
+        if((index + 1) % 2 === 0){
 
             const ad =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
-
-            ad.className =
-                "banner-ad";
+            ad.className = "banner-ad";
 
 
             ad.innerHTML = `
@@ -866,7 +667,6 @@ function showVideos(){
 
                 </div>
 
-
                 <div class="ad-box">
 
                     আপনার বিজ্ঞাপন এখানে
@@ -876,15 +676,11 @@ function showVideos(){
             `;
 
 
-            list.appendChild(
-                ad
-            );
+            list.appendChild(ad);
 
         }
 
-
     });
-
 
 
     showPagination();
@@ -892,24 +688,14 @@ function showVideos(){
 }
 
 
+/* AUTO THUMBNAIL */
 
-/* =========================
-   AUTO THUMBNAIL
-========================= */
-
-function generateThumbnail(
-    file,
-    container
-){
-
+function generateThumbnail(file,container){
 
     const video =
-        document.createElement(
-            "video"
-        );
+        document.createElement("video");
 
-
-    video.src = file;
+    video.src = "./" + file;
 
     video.muted = true;
 
@@ -918,14 +704,11 @@ function generateThumbnail(
     video.preload = "metadata";
 
 
-
     video.addEventListener(
         "loadedmetadata",
         function(){
 
-
             let time = 1;
-
 
             if(video.duration < 1){
 
@@ -935,45 +718,32 @@ function generateThumbnail(
 
             else if(video.duration < 5){
 
-                time =
-                    video.duration / 2;
+                time = video.duration / 2;
 
             }
 
-
-
-            video.currentTime =
-                time;
+            video.currentTime = time;
 
         }
     );
-
 
 
     video.addEventListener(
         "seeked",
         function(){
 
-
             const canvas =
-                document.createElement(
-                    "canvas"
-                );
-
+                document.createElement("canvas");
 
             canvas.width =
                 video.videoWidth;
-
 
             canvas.height =
                 video.videoHeight;
 
 
-
             const ctx =
-                canvas.getContext(
-                    "2d"
-                );
+                canvas.getContext("2d");
 
 
             ctx.drawImage(
@@ -985,11 +755,8 @@ function generateThumbnail(
             );
 
 
-
             const image =
-                document.createElement(
-                    "img"
-                );
+                document.createElement("img");
 
 
             image.src =
@@ -1003,32 +770,22 @@ function generateThumbnail(
                 "Video Thumbnail";
 
 
+            container.innerHTML = "";
 
-            container.innerHTML =
-                "";
-
-
-            container.appendChild(
-                image
-            );
-
+            container.appendChild(image);
 
             video.remove();
 
         },
-
         {
             once:true
         }
-
     );
-
 
 
     video.addEventListener(
         "error",
         function(){
-
 
             container.innerHTML = `
 
@@ -1041,39 +798,26 @@ function generateThumbnail(
             `;
 
         }
-
     );
 
 }
 
 
-
-/* =========================
-   PAGINATION
-========================= */
+/* PAGINATION */
 
 function showPagination(){
 
     const pagination =
-        document.getElementById(
-            "pagination"
-        );
+        document.getElementById("pagination");
 
-
-    pagination.innerHTML =
-        "";
-
+    pagination.innerHTML = "";
 
 
     const totalPages =
         Math.ceil(
-
-            filteredVideos.length
-            /
+            filteredVideos.length /
             videosPerPage
-
         );
-
 
 
     for(
@@ -1082,39 +826,24 @@ function showPagination(){
         i++
     ){
 
-
         const button =
-            document.createElement(
-                "button"
-            );
+            document.createElement("button");
+
+        button.innerText = i;
 
 
-        button.innerText =
-            i;
+        if(i === currentPage){
 
-
-
-        if(
-            i === currentPage
-        ){
-
-            button.classList.add(
-                "active"
-            );
+            button.classList.add("active");
 
         }
 
 
-
-        button.onclick =
-            function(){
-
+        button.onclick = function(){
 
             currentPage = i;
 
-
             showVideos();
-
 
             window.scrollTo({
 
@@ -1127,143 +856,90 @@ function showPagination(){
         };
 
 
-
-        pagination.appendChild(
-            button
-        );
+        pagination.appendChild(button);
 
     }
 
 }
 
 
+/* PLAY VIDEO */
 
-/* =========================
-   PLAY VIDEO
-========================= */
-
-function playVideo(
-    file,
-    title,
-    id
-){
-
+function playVideo(file,title,id){
 
     const player =
-        document.getElementById(
-            "player"
-        );
-
+        document.getElementById("player");
 
     const videoPlayer =
-        document.getElementById(
-            "videoPlayer"
-        );
-
+        document.getElementById("videoPlayer");
 
     const source =
-        document.getElementById(
-            "videoSource"
-        );
-
+        document.getElementById("videoSource");
 
     const playerTitle =
-        document.getElementById(
-            "playerTitle"
-        );
-
+        document.getElementById("playerTitle");
 
 
     source.src = "./" + file;
-videoPlayer.load();
+
+    videoPlayer.load();
 
 
-    playerTitle.innerText =
-        title;
+    playerTitle.innerText = title;
 
 
-
-    player.style.display =
-        "block";
+    player.style.display = "block";
 
 
-
-    showRecommended(
-        id
-    );
+    showRecommended(id);
 
 
-
-    if(
-        location.hash !== "#video"
-    ){
+    if(location.hash !== "#video"){
 
         history.pushState(
             {
                 videoPlayer:true
             },
-
             "",
-
             "#video"
-
         );
 
     }
 
 
+    videoPlayer.play().catch(
+        function(error){
 
-    videoPlayer.play()
-        .catch(
-            function(error){
+            console.log(
+                "Video play error:",
+                error
+            );
 
-                console.log(
-                    "Video play error:",
-                    error
-                );
-
-            }
-        );
+        }
+    );
 
 }
 
 
-
-/* =========================
-   CLOSE PLAYER
-========================= */
+/* CLOSE PLAYER */
 
 function closePlayer(){
 
-
     const player =
-        document.getElementById(
-            "player"
-        );
-
+        document.getElementById("player");
 
     const videoPlayer =
-        document.getElementById(
-            "videoPlayer"
-        );
-
+        document.getElementById("videoPlayer");
 
 
     videoPlayer.pause();
 
+    videoPlayer.currentTime = 0;
 
-    videoPlayer.currentTime =
-        0;
-
-
-    player.style.display =
-        "none";
+    player.style.display = "none";
 
 
-
-    if(
-        location.hash === "#video"
-    ){
+    if(location.hash === "#video"){
 
         history.back();
 
@@ -1272,134 +948,82 @@ function closePlayer(){
 }
 
 
-
-/* =========================
-   ANDROID BACK BUTTON
-========================= */
+/* ANDROID BACK BUTTON */
 
 window.addEventListener(
     "popstate",
     function(){
 
-
         const player =
-            document.getElementById(
-                "player"
-            );
-
+            document.getElementById("player");
 
         const videoPlayer =
-            document.getElementById(
-                "videoPlayer"
-            );
-
+            document.getElementById("videoPlayer");
 
 
         if(
-            player.style.display ===
-            "block"
+            player.style.display === "block"
         ){
-
 
             videoPlayer.pause();
 
+            videoPlayer.currentTime = 0;
 
-            videoPlayer.currentTime =
-                0;
-
-
-            player.style.display =
-                "none";
+            player.style.display = "none";
 
         }
 
     }
-
 );
 
 
+/* RECOMMENDED VIDEOS */
 
-/* =========================
-   RECOMMENDED VIDEOS
-========================= */
-
-function showRecommended(
-    currentId
-){
-
+function showRecommended(currentId){
 
     const list =
         document.getElementById(
             "recommendedList"
         );
 
-
-    list.innerHTML =
-        "";
-
+    list.innerHTML = "";
 
 
     const recommended =
         videos
-
         .filter(
             video =>
-
-            video.id !== currentId
-            &&
-            video.file
-
+                video.id !== currentId &&
+                video.file
         )
-
-        .slice(
-            0,
-            6
-        );
+        .slice(0,6);
 
 
-
-    recommended.forEach(
-        video => {
-
+    recommended.forEach(video=>{
 
         const card =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         card.className =
             "recommend-card";
 
 
-
-        card.onclick =
-            function(){
-
+        card.onclick = function(){
 
             playVideo(
-
                 video.file,
-
                 video.title,
-
                 video.id
-
             );
 
         };
 
 
-
         const thumb =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         thumb.className =
             "recommend-thumb";
-
 
 
         thumb.innerHTML = `
@@ -1413,61 +1037,40 @@ function showRecommended(
         `;
 
 
-
         generateThumbnail(
             video.file,
             thumb
         );
 
 
-
         const info =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         info.className =
             "recommend-info";
 
 
-
         info.innerHTML = `
 
-            <h3>
-                ${video.title}
-            </h3>
+            <h3>${video.title}</h3>
 
         `;
 
 
+        card.appendChild(thumb);
 
-        card.appendChild(
-            thumb
-        );
+        card.appendChild(info);
 
-
-        card.appendChild(
-            info
-        );
-
-
-        list.appendChild(
-            card
-        );
+        list.appendChild(card);
 
     });
 
 }
 
 
-
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 function searchVideos(){
-
 
     const search =
         document.getElementById(
@@ -1477,34 +1080,25 @@ function searchVideos(){
         .toLowerCase();
 
 
-
     filteredVideos =
         videos.filter(
             video =>
-
-            video.title
-            .toLowerCase()
-            .includes(search)
-
+                video.title
+                .toLowerCase()
+                .includes(search)
         );
 
 
-
     currentPage = 1;
-
 
     showVideos();
 
 }
 
 
-
-/* =========================
-   START WEBSITE
-========================= */
+/* START */
 
 showVideos();
-
 
 </script>
 
