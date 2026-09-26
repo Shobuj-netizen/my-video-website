@@ -552,7 +552,7 @@ footer strong{
         class="close"
         onclick="closePlayer()"
     >
-        ×
+        
     </div>
 
     <video
@@ -613,11 +613,8 @@ function playVideo(video){
 
     videoPlayer.play();
 
-    // Browser history-তে ভিডিও প্লেয়ারের একটি ধাপ যোগ করা
     history.pushState({ videoPlayer: true }, "", "#video");
 }
-
-
 /* CLOSE PLAYER */
 
 function closePlayer(){
@@ -634,7 +631,6 @@ function closePlayer(){
 
     player.style.display = "none";
 
-    // ভিডিও বন্ধ করলে আগের history-তে ফিরে যাওয়া
     if (location.hash === "#video") {
         history.back();
     }
@@ -651,7 +647,6 @@ window.addEventListener("popstate", function(){
     const videoPlayer =
         document.getElementById("videoPlayer");
 
-    // ভিডিও খোলা থাকলে Back চাপলে শুধু ভিডিও বন্ধ হবে
     if (player.style.display === "block") {
 
         videoPlayer.pause();
