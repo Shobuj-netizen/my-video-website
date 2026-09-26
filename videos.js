@@ -14,6 +14,11 @@ const videos = [
         title: "New viral",
         file: "video3.mp4"
     },
+    {
+        id: 3,
+        title: "New viral japan",
+        file: "video4.mp4"
+    },
 
     // নতুন ভিডিও এখানে যোগ করবেন
 ];
