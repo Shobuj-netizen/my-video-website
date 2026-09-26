@@ -7,21 +7,18 @@
 <title>Viral Link</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
 
 body{
     margin:0;
-    padding:0;
     background:#111;
-    color:white;
-    font-family:Arial, sans-serif;
+    color:#fff;
+    font-family:Arial,sans-serif;
 }
 
 /* HEADER */
-
 header{
     text-align:center;
     padding:15px 10px 12px;
@@ -40,12 +37,9 @@ header{
 header h1{
     margin:6px 0 0;
     font-size:25px;
-    font-weight:bold;
-    letter-spacing:1px;
 }
 
 /* SEARCH */
-
 .search-box{
     padding:15px 10px;
     max-width:700px;
@@ -55,16 +49,15 @@ header h1{
 .search-box input{
     width:100%;
     padding:13px 15px;
-    border:none;
-    outline:none;
+    border:0;
+    outline:0;
     border-radius:8px;
     background:#222;
-    color:white;
+    color:#fff;
     font-size:16px;
 }
 
-/* VIDEO LIST */
-
+/* CONTAINER */
 .container{
     width:100%;
     max-width:700px;
@@ -72,6 +65,7 @@ header h1{
     padding:10px;
 }
 
+/* VIDEO LIST */
 .video-list{
     display:flex;
     flex-direction:column;
@@ -79,32 +73,28 @@ header h1{
 }
 
 /* CARD */
-
 .card{
     background:#1c1c1c;
     border-radius:10px;
     overflow:hidden;
     cursor:pointer;
     border:1px solid #292929;
-    transition:0.2s;
 }
 
 .card:hover{
     background:#242424;
-    transform:translateY(-2px);
 }
 
 /* THUMBNAIL */
-
 .thumbnail{
     width:100%;
     height:230px;
     background:#222;
+    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    position:relative;
 }
 
 .thumbnail img{
@@ -119,7 +109,6 @@ header h1{
 }
 
 /* PLAY BUTTON */
-
 .play-button{
     position:absolute;
     left:50%;
@@ -128,11 +117,10 @@ header h1{
 
     width:58px;
     height:58px;
-
     border-radius:50%;
 
-    background:rgba(229,9,20,0.95);
-    color:white;
+    background:rgba(229,9,20,.95);
+    color:#fff;
 
     display:flex;
     align-items:center;
@@ -141,13 +129,10 @@ header h1{
     font-size:25px;
     padding-left:3px;
 
-    box-shadow:0 3px 15px rgba(0,0,0,0.6);
-
     z-index:5;
 }
 
 /* CARD INFO */
-
 .card-info{
     padding:13px;
 }
@@ -155,8 +140,6 @@ header h1{
 .card-info h3{
     margin:0 0 6px;
     font-size:18px;
-    font-weight:bold;
-    color:white;
 }
 
 .card-info p{
@@ -165,8 +148,7 @@ header h1{
     font-size:13px;
 }
 
-/* BANNER AD */
-
+/* AD */
 .banner-ad{
     width:100%;
     min-height:70px;
@@ -182,16 +164,23 @@ header h1{
     font-size:14px;
 }
 
-/* PLAYER */
+/* =========================
+   FULL SCREEN VIDEO PLAYER
+========================= */
 
 #player{
     display:none;
+
+    position:fixed;
+    z-index:9999;
+
+    left:0;
+    top:0;
+
     width:100%;
-    max-width:700px;
-    margin:15px auto;
+    height:100%;
+
     background:#000;
-    border-radius:10px;
-    overflow:hidden;
 }
 
 .player-top{
@@ -208,44 +197,47 @@ header h1{
 
 .close-btn{
     background:none;
-    border:none;
-    color:white;
+    border:0;
+    color:#fff;
 
-    font-size:30px;
-
-    cursor:pointer;
+    font-size:32px;
 
     width:45px;
     height:45px;
+
+    cursor:pointer;
 }
 
 .player-title{
+    margin-left:5px;
+
     font-size:17px;
     font-weight:bold;
 
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-
-    margin-left:5px;
 }
 
 .player-video-box{
     width:100%;
-    background:#000;
+    height:calc(100% - 55px);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    background:#000;
 }
 
 #videoPlayer{
     width:100%;
     max-height:100%;
+
     background:#000;
 }
 
 /* RECOMMENDED */
-
 .recommended{
     margin-top:25px;
 }
@@ -298,29 +290,22 @@ header h1{
 
 .recommend-info h3{
     margin:0;
-
     font-size:15px;
-    color:white;
 }
 
 /* PAGINATION */
-
 .pagination{
     display:flex;
     justify-content:center;
-    align-items:center;
-
     gap:7px;
-
     margin:25px 0;
     flex-wrap:wrap;
 }
 
 .pagination button{
-    border:none;
-
+    border:0;
     background:#222;
-    color:white;
+    color:#fff;
 
     padding:9px 13px;
 
@@ -333,24 +318,15 @@ header h1{
     background:#e50914;
 }
 
-.pagination button:hover{
-    background:#e50914;
-}
-
 /* FOOTER */
-
 footer{
     text-align:center;
-
     color:#777;
-
     font-size:13px;
-
     padding:25px 10px;
 }
 
 /* MOBILE */
-
 @media(max-width:600px){
 
     .thumbnail{
@@ -366,22 +342,14 @@ footer{
         height:55px;
         font-size:24px;
     }
-
-    .recommend-thumb{
-        width:110px;
-        height:70px;
-    }
 }
-
 </style>
 </head>
 
 
 <body>
 
-
 <!-- HEADER -->
-
 <header>
 
     <img
@@ -396,7 +364,6 @@ footer{
 
 
 <!-- SEARCH -->
-
 <div class="search-box">
 
     <input
@@ -409,8 +376,7 @@ footer{
 </div>
 
 
-<!-- VIDEO AREA -->
-
+<!-- VIDEO LIST -->
 <div class="container">
 
     <div
@@ -420,7 +386,6 @@ footer{
 
 
     <!-- PAGINATION -->
-
     <div
         id="pagination"
         class="pagination"
@@ -428,7 +393,6 @@ footer{
 
 
     <!-- RECOMMENDED -->
-
     <div class="recommended">
 
         <h2>Recommended Videos</h2>
@@ -443,7 +407,9 @@ footer{
 </div>
 
 
-<!-- VIDEO PLAYER -->
+<!-- =========================
+     FULL SCREEN PLAYER
+========================= -->
 
 <div id="player">
 
@@ -481,8 +447,6 @@ footer{
                 type="video/mp4"
             >
 
-            Your browser does not support video.
-
         </video>
 
     </div>
@@ -491,11 +455,8 @@ footer{
 
 
 <footer>
-
     © 2026 Viral Link
-
 </footer>
-
 
 
 <script>
@@ -581,10 +542,6 @@ const videos = [
 ];
 
 
-/* =========================
-   SETTINGS
-========================= */
-
 const videosPerPage = 10;
 
 let currentPage = 1;
@@ -606,7 +563,6 @@ function showVideos(){
 
     const start =
         (currentPage - 1) * videosPerPage;
-
 
     const end =
         start + videosPerPage;
@@ -630,8 +586,7 @@ function showVideos(){
 
                 playVideo(
                     video.file,
-                    video.title,
-                    video.id
+                    video.title
                 );
 
             }
@@ -642,10 +597,9 @@ function showVideos(){
         const thumbnail =
             document.createElement("div");
 
-        thumbnail.className = "thumbnail";
+        thumbnail.className =
+            "thumbnail";
 
-
-        /* VIDEO EXISTS */
 
         if(video.file){
 
@@ -661,17 +615,12 @@ function showVideos(){
 
             `;
 
-
             generateThumbnail(
                 video.file,
                 thumbnail
             );
 
         }
-
-
-        /* VIDEO NOT UPLOADED */
-
         else{
 
             thumbnail.innerHTML = `
@@ -688,7 +637,8 @@ function showVideos(){
         const info =
             document.createElement("div");
 
-        info.className = "card-info";
+        info.className =
+            "card-info";
 
 
         info.innerHTML = `
@@ -711,7 +661,7 @@ function showVideos(){
         list.appendChild(card);
 
 
-        /* BANNER AFTER EVERY 2 VIDEOS */
+        /* AD AFTER EVERY 2 VIDEOS */
 
         if(
             (index + 1) % 2 === 0 &&
@@ -721,9 +671,10 @@ function showVideos(){
             const ad =
                 document.createElement("div");
 
-            ad.className = "banner-ad";
+            ad.className =
+                "banner-ad";
 
-            ad.innerHTML =
+            ad.innerText =
                 "ADVERTISEMENT";
 
             list.appendChild(ad);
@@ -739,7 +690,7 @@ function showVideos(){
 
 
 /* =========================
-   GENERATE THUMBNAIL
+   THUMBNAIL
 ========================= */
 
 function generateThumbnail(
@@ -753,7 +704,6 @@ function generateThumbnail(
 
     video.src =
         "./" + file;
-
 
     video.muted = true;
 
@@ -769,9 +719,9 @@ function generateThumbnail(
                 video.currentTime = 1;
 
             }
-            catch(error){
+            catch(e){
 
-                createThumbnailImage(
+                createThumbnail(
                     video,
                     container
                 );
@@ -786,7 +736,7 @@ function generateThumbnail(
         "seeked",
         function(){
 
-            createThumbnailImage(
+            createThumbnail(
                 video,
                 container
             );
@@ -818,10 +768,10 @@ function generateThumbnail(
 
 
 /* =========================
-   CREATE THUMBNAIL IMAGE
+   CREATE THUMBNAIL
 ========================= */
 
-function createThumbnailImage(
+function createThumbnail(
     video,
     container
 ){
@@ -845,8 +795,8 @@ function createThumbnailImage(
             video,
             0,
             0,
-            canvas.width,
-            canvas.height
+            640,
+            360
         );
 
 
@@ -870,26 +820,22 @@ function createThumbnailImage(
         container.appendChild(image);
 
 
-        /* ADD PLAY BUTTON AGAIN */
+        /* PLAY BUTTON */
 
-        const playButton =
+        const play =
             document.createElement("div");
 
-
-        playButton.className =
+        play.className =
             "play-button";
 
-
-        playButton.innerText =
+        play.innerText =
             "▶";
 
 
-        container.appendChild(
-            playButton
-        );
+        container.appendChild(play);
 
     }
-    catch(error){
+    catch(e){
 
         container.innerHTML = `
 
@@ -914,33 +860,21 @@ function createThumbnailImage(
 
 function playVideo(
     file,
-    title,
-    id
+    title
 ){
 
     const player =
         document.getElementById("player");
 
-
     const videoPlayer =
-        document.getElementById(
-            "videoPlayer"
-        );
-
+        document.getElementById("videoPlayer");
 
     const source =
-        document.getElementById(
-            "videoSource"
-        );
-
+        document.getElementById("videoSource");
 
     const playerTitle =
-        document.getElementById(
-            "playerTitle"
-        );
+        document.getElementById("playerTitle");
 
-
-    /* IMPORTANT */
 
     source.src =
         "./" + file;
@@ -957,16 +891,12 @@ function playVideo(
         "block";
 
 
-    /* BACK BUTTON SUPPORT */
-
     if(
         location.hash !== "#video"
     ){
 
         history.pushState(
-            {
-                videoPlayer:true
-            },
+            {videoPlayer:true},
             "",
             "#video"
         );
@@ -978,7 +908,7 @@ function playVideo(
         function(error){
 
             console.log(
-                "Video play error:",
+                "Play error:",
                 error
             );
 
@@ -989,29 +919,21 @@ function playVideo(
 
 
 /* =========================
-   CLOSE PLAYER
+   CLOSE VIDEO
 ========================= */
 
 function closePlayer(){
 
     const player =
-        document.getElementById(
-            "player"
-        );
-
+        document.getElementById("player");
 
     const videoPlayer =
-        document.getElementById(
-            "videoPlayer"
-        );
+        document.getElementById("videoPlayer");
 
 
     videoPlayer.pause();
 
-
-    videoPlayer.currentTime =
-        0;
-
+    videoPlayer.currentTime = 0;
 
     player.style.display =
         "none";
@@ -1037,26 +959,19 @@ window.addEventListener(
     function(){
 
         const player =
-            document.getElementById(
-                "player"
-            );
-
+            document.getElementById("player");
 
         const videoPlayer =
-            document.getElementById(
-                "videoPlayer"
-            );
+            document.getElementById("videoPlayer");
 
 
         if(
-            player.style.display ===
-            "block"
+            player.style.display === "block"
         ){
 
             videoPlayer.pause();
 
-            videoPlayer.currentTime =
-                0;
+            videoPlayer.currentTime = 0;
 
             player.style.display =
                 "none";
@@ -1096,19 +1011,12 @@ function showPagination(){
     }
 
 
-    /* PREVIOUS */
-
     if(currentPage > 1){
 
         const previous =
-            document.createElement(
-                "button"
-            );
+            document.createElement("button");
 
-
-        previous.innerText =
-            "‹";
-
+        previous.innerText = "‹";
 
         previous.onclick =
             function(){
@@ -1117,13 +1025,9 @@ function showPagination(){
 
                 showVideos();
 
-                window.scrollTo(
-                    0,
-                    0
-                );
+                window.scrollTo(0,0);
 
             };
-
 
         pagination.appendChild(
             previous
@@ -1132,27 +1036,19 @@ function showPagination(){
     }
 
 
-    /* PAGE NUMBERS */
-
     for(
-        let i = 1;
-        i <= totalPages;
+        let i=1;
+        i<=totalPages;
         i++
     ){
 
         const button =
-            document.createElement(
-                "button"
-            );
+            document.createElement("button");
+
+        button.innerText = i;
 
 
-        button.innerText =
-            i;
-
-
-        if(
-            i === currentPage
-        ){
+        if(i === currentPage){
 
             button.className =
                 "active";
@@ -1163,15 +1059,11 @@ function showPagination(){
         button.onclick =
             function(){
 
-                currentPage =
-                    i;
+                currentPage = i;
 
                 showVideos();
 
-                window.scrollTo(
-                    0,
-                    0
-                );
+                window.scrollTo(0,0);
 
             };
 
@@ -1183,20 +1075,14 @@ function showPagination(){
     }
 
 
-    /* NEXT */
-
     if(
         currentPage < totalPages
     ){
 
         const next =
-            document.createElement(
-                "button"
-            );
+            document.createElement("button");
 
-
-        next.innerText =
-            "›";
+        next.innerText = "›";
 
 
         next.onclick =
@@ -1206,10 +1092,7 @@ function showPagination(){
 
                 showVideos();
 
-                window.scrollTo(
-                    0,
-                    0
-                );
+                window.scrollTo(0,0);
 
             };
 
@@ -1235,7 +1118,7 @@ function searchVideos(){
         );
 
 
-    const searchText =
+    const text =
         input.value
         .toLowerCase()
         .trim();
@@ -1247,7 +1130,7 @@ function searchVideos(){
 
                 return video.title
                     .toLowerCase()
-                    .includes(searchText);
+                    .includes(text);
 
             }
         );
@@ -1261,7 +1144,7 @@ function searchVideos(){
 
 
 /* =========================
-   RECOMMENDED VIDEOS
+   RECOMMENDED
 ========================= */
 
 function showRecommended(){
@@ -1275,111 +1158,80 @@ function showRecommended(){
     list.innerHTML = "";
 
 
-    const recommended =
-        videos
-        .filter(
-            function(video){
+    videos
+    .filter(function(video){
 
-                return video.file;
+        return video.file;
 
-            }
-        )
-        .slice(0,5);
+    })
+    .slice(0,5)
+    .forEach(function(video){
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "recommend-card";
 
 
-    recommended.forEach(
-        function(video){
+        card.onclick =
+            function(){
 
-            const card =
-                document.createElement(
-                    "div"
+                playVideo(
+                    video.file,
+                    video.title
                 );
 
-
-            card.className =
-                "recommend-card";
+            };
 
 
-            card.onclick =
-                function(){
+        const thumb =
+            document.createElement("div");
 
-                    playVideo(
-                        video.file,
-                        video.title,
-                        video.id
-                    );
-
-                };
+        thumb.className =
+            "recommend-thumb";
 
 
-            const thumb =
-                document.createElement(
-                    "div"
-                );
+        const img =
+            document.createElement("img");
 
 
-            thumb.className =
-                "recommend-thumb";
+        img.alt =
+            video.title;
 
 
-            const img =
-                document.createElement(
-                    "img"
-                );
+        thumb.appendChild(img);
 
 
-            img.alt =
-                video.title;
+        makeRecommendedThumbnail(
+            video.file,
+            img
+        );
 
 
-            thumb.appendChild(
-                img
-            );
+        const info =
+            document.createElement("div");
+
+        info.className =
+            "recommend-info";
 
 
-            /* MAKE RECOMMEND THUMBNAIL */
+        info.innerHTML = `
 
-            makeRecommendedThumbnail(
-                video.file,
-                img
-            );
+            <h3>
+                ${video.title}
+            </h3>
 
-
-            const info =
-                document.createElement(
-                    "div"
-                );
+        `;
 
 
-            info.className =
-                "recommend-info";
+        card.appendChild(thumb);
 
+        card.appendChild(info);
 
-            info.innerHTML = `
+        list.appendChild(card);
 
-                <h3>
-                    ${video.title}
-                </h3>
-
-            `;
-
-
-            card.appendChild(
-                thumb
-            );
-
-
-            card.appendChild(
-                info
-            );
-
-
-            list.appendChild(
-                card
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -1394,14 +1246,11 @@ function makeRecommendedThumbnail(
 ){
 
     const video =
-        document.createElement(
-            "video"
-        );
+        document.createElement("video");
 
 
     video.src =
         "./" + file;
-
 
     video.muted = true;
 
@@ -1429,10 +1278,7 @@ function makeRecommendedThumbnail(
         function(){
 
             const canvas =
-                document.createElement(
-                    "canvas"
-                );
-
+                document.createElement("canvas");
 
             canvas.width = 320;
 
@@ -1440,9 +1286,7 @@ function makeRecommendedThumbnail(
 
 
             const ctx =
-                canvas.getContext(
-                    "2d"
-                );
+                canvas.getContext("2d");
 
 
             try{
@@ -1472,7 +1316,7 @@ function makeRecommendedThumbnail(
 
 
 /* =========================
-   START WEBSITE
+   START
 ========================= */
 
 showVideos();
