@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>My Video Website</title>
 
+
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
     box-sizing:border-box;
 }
@@ -17,6 +27,11 @@ body{
     color:#fff;
     font-family:Arial,sans-serif;
 }
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:#222;
@@ -29,11 +44,21 @@ header h1{
     font-size:24px;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
     width:95%;
     max-width:900px;
     margin:auto;
 }
+
+
+/* =========================
+   SEARCH
+========================= */
 
 .search{
     margin:15px 0;
@@ -45,14 +70,24 @@ header h1{
     border-radius:6px;
     border:none;
     font-size:16px;
+    outline:none;
 }
 
-/* Video List */
+
+/* =========================
+   VIDEO LIST
+========================= */
+
 .video-list{
     display:flex;
     flex-direction:column;
     gap:15px;
 }
+
+
+/* =========================
+   VIDEO CARD
+========================= */
 
 .card{
     background:#222;
@@ -61,13 +96,24 @@ header h1{
     cursor:pointer;
 }
 
+.card:hover{
+    background:#292929;
+}
+
+
+/* =========================
+   THUMBNAIL
+========================= */
+
 .thumbnail{
     width:100%;
     height:230px;
     background:#333;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     overflow:hidden;
 }
 
@@ -81,6 +127,11 @@ header h1{
     color:#aaa;
     font-size:18px;
 }
+
+
+/* =========================
+   VIDEO INFO
+========================= */
 
 .card-info{
     padding:12px;
@@ -96,136 +147,14 @@ header h1{
     color:#aaa;
 }
 
-/* Pagination */
-.pagination{
-    display:flex;
-    justify-content:center;
-    gap:7px;
-    margin:25px 0;
-    flex-wrap:wrap;
-}
 
-.pagination button{
-    background:#333;
-    color:#fff;
-    border:none;
-    padding:9px 13px;
-    border-radius:5px;
-    cursor:pointer;
-}
+/* =========================
+   BANNER AD
+========================= */
 
-.pagination button.active{
-    background:#e50914;
-}
-
-/* Ads */
-.ad{
-    background:#222;
-    border:1px dashed #555;
-    color:#888;
-    text-align:center;
-    padding:18px;
-    margin:15px 0;
-}
-
-/* Player */
-#player{
-    display:none;
-    background:#000;
-    padding:10px;
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    overflow-y:auto;
-}
-
-.player-box{
-    max-width:900px;
-    margin:auto;
-}
-
-.close-btn{
-    background:#e50914;
-    color:#fff;
-    border:none;
-    padding:10px 16px;
-    border-radius:5px;
-    cursor:pointer;
-    margin-bottom:10px;
-}
-
-#videoPlayer{
+.banner-ad{
     width:100%;
-    max-height:70vh;
-    background:#000;
-}
-
-.player-title{
-    font-size:20px;
-    margin:12px 0;
-}
-
-/* Recommended */
-.recommended{
-    margin-top:20px;
-}
-
-.recommended h2{
-    font-size:20px;
-}
-
-.recommended-list{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.recommend-card{
-    display:flex;
-    background:#222;
-    border-radius:6px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.recommend-thumb{
-    width:130px;
-    height:80px;
-    background:#333;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.recommend-thumb img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.recommend-info{
-    padding:10px;
-}
-
-.recommend-info h3{
     margin:0;
-    font-size:15px;
-}
-
-@media(max-width:600px){
-
-    .thumbnail{
-        height:210px;
-    }
-
-    .recommend-thumb{
-        width:110px;
-        height:70px;
-    }
-}.banner-ad{
-    width:100%;
-    margin:5px 0;
 }
 
 .ad-title{
@@ -238,89 +167,420 @@ header h1{
 .ad-box{
     width:100%;
     min-height:90px;
+
     background:#222;
-    border:1px solid #444;
+
+    border:1px dashed #555;
+    border-radius:5px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:#888;
     font-size:14px;
-    border-radius:5px;
 }
+
+
+/* =========================
+   TOP AD
+========================= */
+
+.ad{
+    background:#222;
+    border:1px dashed #555;
+    color:#888;
+
+    text-align:center;
+
+    padding:18px;
+    margin:15px 0;
+}
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination{
+    display:flex;
+
+    justify-content:center;
+
+    gap:7px;
+
+    margin:25px 0;
+
+    flex-wrap:wrap;
+}
+
+.pagination button{
+    background:#333;
+    color:#fff;
+
+    border:none;
+
+    padding:9px 13px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+}
+
+.pagination button.active{
+    background:#e50914;
+}
+
+
+/* =========================
+   VIDEO PLAYER
+========================= */
+
+#player{
+    display:none;
+
+    background:#000;
+
+    padding:10px;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    overflow-y:auto;
+}
+
+.player-box{
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.close-btn{
+    background:#e50914;
+
+    color:#fff;
+
+    border:none;
+
+    padding:10px 16px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    margin-bottom:10px;
+
+    font-size:15px;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+#videoPlayer{
+    width:100%;
+
+    max-height:70vh;
+
+    background:#000;
+}
+
+
+/* =========================
+   PLAYER TITLE
+========================= */
+
+.player-title{
+    font-size:20px;
+
+    margin:12px 0;
+}
+
+
+/* =========================
+   RECOMMENDED
+========================= */
+
+.recommended{
+    margin-top:20px;
+}
+
+.recommended h2{
+    font-size:20px;
+}
+
+
+/* =========================
+   RECOMMENDED LIST
+========================= */
+
+.recommended-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+
+/* =========================
+   RECOMMENDED CARD
+========================= */
+
+.recommend-card{
+    display:flex;
+
+    background:#222;
+
+    border-radius:6px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   RECOMMENDED THUMB
+========================= */
+
+.recommend-thumb{
+    width:130px;
+
+    height:80px;
+
+    background:#333;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.recommend-thumb img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+/* =========================
+   RECOMMENDED INFO
+========================= */
+
+.recommend-info{
+    padding:10px;
+}
+
+.recommend-info h3{
+    margin:0;
+
+    font-size:15px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .thumbnail{
+        height:210px;
+    }
+
+    .recommend-thumb{
+        width:110px;
+
+        height:70px;
+    }
+
+    header h1{
+        font-size:21px;
+    }
+
+}
+
+
+/* =========================
+   END CSS
+========================= */
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
     <h1>🎬 My Video Website</h1>
+
 </header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
+
+    <!-- SEARCH -->
+
     <div class="search">
+
         <input
             type="text"
             id="searchInput"
             placeholder="ভিডিও খুঁজুন..."
             oninput="searchVideos()"
         >
+
     </div>
+
+
+
+    <!-- TOP AD -->
 
     <div class="ad">
+
         Advertisement
+
     </div>
 
-    <div id="videoList" class="video-list"></div>
 
-    <div id="pagination" class="pagination"></div>
+
+    <!-- VIDEO LIST -->
+
+    <div
+        id="videoList"
+        class="video-list">
+    </div>
+
+
+
+    <!-- PAGINATION -->
+
+    <div
+        id="pagination"
+        class="pagination">
+    </div>
+
 
 </div>
 
 
-<!-- VIDEO PLAYER -->
+
+<!-- =========================
+     VIDEO PLAYER
+========================= -->
 
 <div id="player">
 
+
     <div class="player-box">
 
-        <button class="close-btn" onclick="closePlayer()">
+
+        <!-- BACK -->
+
+        <button
+            class="close-btn"
+            onclick="closePlayer()">
+
             ← Back
+
         </button>
 
+
+
+        <!-- PLAYER AD -->
+
         <div class="ad">
+
             Advertisement
+
         </div>
 
-        <div id="playerTitle" class="player-title"></div>
+
+
+        <!-- TITLE -->
+
+        <div
+            id="playerTitle"
+            class="player-title">
+        </div>
+
+
+
+        <!-- VIDEO -->
 
         <video
             id="videoPlayer"
             controls
             controlsList="nodownload"
             oncontextmenu="return false;"
-            playsinline
-        >
-            <source id="videoSource" src="" type="video/mp4">
+            playsinline>
+
+            <source
+                id="videoSource"
+                src=""
+                type="video/mp4">
+
         </video>
+
+
+
+        <!-- RECOMMENDED -->
 
         <div class="recommended">
 
-            <h2>Recommended Videos</h2>
+            <h2>
+                Recommended Videos
+            </h2>
+
 
             <div
                 id="recommendedList"
-                class="recommended-list"
-            ></div>
+                class="recommended-list">
+            </div>
 
         </div>
+
 
     </div>
 
 </div>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
 
 /* =========================
    VIDEO DATA
@@ -403,6 +663,7 @@ const videos = [
 ];
 
 
+
 /* =========================
    SETTINGS
 ========================= */
@@ -414,6 +675,7 @@ let currentPage = 1;
 let filteredVideos = videos;
 
 
+
 /* =========================
    SHOW VIDEOS
 ========================= */
@@ -421,106 +683,52 @@ let filteredVideos = videos;
 function showVideos(){
 
     const list =
-        document.getElementById("videoList");
+        document.getElementById(
+            "videoList"
+        );
+
 
     list.innerHTML = "";
 
+
     const start =
-        (currentPage - 1) * videosPerPage;
+        (currentPage - 1)
+        * videosPerPage;
+
 
     const end =
         start + videosPerPage;
 
+
     const pageVideos =
-        filteredVideos.slice(start,end);
-
-
-    pageVideos.forEach(video => {pageVideos.forEach((video, index) => {
-
-    const card = document.createElement("div");
-
-    card.className = "card";
-
-    card.onclick = function(){
-        if(video.file){
-            playVideo(
-                video.file,
-                video.title,
-                video.id
-            );
-        }
-    };
-
-    const thumbnail = document.createElement("div");
-    thumbnail.className = "thumbnail";
-
-    if(video.file){
-
-        thumbnail.innerHTML = `
-            <div class="placeholder">
-                Thumbnail loading...
-            </div>
-        `;
-
-        generateThumbnail(
-            video.file,
-            thumbnail
+        filteredVideos.slice(
+            start,
+            end
         );
 
-    }else{
-
-        thumbnail.innerHTML = `
-            <div class="placeholder">
-                🎬 ভিডিও নেই
-            </div>
-        `;
-    }
-
-    const info = document.createElement("div");
-
-    info.className = "card-info";
-
-    info.innerHTML = `
-        <h3>${video.title}</h3>
-        <p>ভিডিও</p>
-    `;
-
-    card.appendChild(thumbnail);
-    card.appendChild(info);
-
-    list.appendChild(card);
 
 
-    /* প্রতি ২টি ভিডিওর পর ব্যানার অ্যাড */
+    pageVideos.forEach(
+        (video,index) => {
 
-    if((index + 1) % 2 === 0){
 
-        const ad = document.createElement("div");
-
-        ad.className = "banner-ad";
-
-        ad.innerHTML = `
-            <div class="ad-title">
-                Advertisement
-            </div>
-
-            <div class="ad-box">
-                <span>আপনার বিজ্ঞাপন এখানে</span>
-            </div>
-        `;
-
-        list.appendChild(ad);
-    }
-
-});
+        /* =====================
+           VIDEO CARD
+        ===================== */
 
         const card =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        card.className = "card";
+
+        card.className =
+            "card";
 
 
-        card.onclick = function(){
+        card.onclick =
+            function(){
+
 
             if(video.file){
 
@@ -535,68 +743,155 @@ function showVideos(){
         };
 
 
+
+        /* =====================
+           THUMBNAIL
+        ===================== */
+
         const thumbnail =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         thumbnail.className =
             "thumbnail";
 
 
-        /*
-          যদি ভিডিও থাকে,
-          তাহলে ভিডিও থেকেই
-          অটোমেটিক thumbnail হবে
-        */
 
         if(video.file){
 
+
             thumbnail.innerHTML = `
+
                 <div class="placeholder">
+
                     Thumbnail loading...
+
                 </div>
+
             `;
+
 
             generateThumbnail(
                 video.file,
                 thumbnail
             );
 
+
         }else{
 
+
             thumbnail.innerHTML = `
+
                 <div class="placeholder">
+
                     🎬 ভিডিও নেই
+
                 </div>
+
             `;
 
         }
 
 
+
+        /* =====================
+           VIDEO INFO
+        ===================== */
+
         const info =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         info.className =
             "card-info";
 
 
         info.innerHTML = `
-            <h3>${video.title}</h3>
-            <p>ভিডিও</p>
+
+            <h3>
+                ${video.title}
+            </h3>
+
+            <p>
+                ভিডিও
+            </p>
+
         `;
 
 
-        card.appendChild(thumbnail);
 
-        card.appendChild(info);
+        card.appendChild(
+            thumbnail
+        );
 
-        list.appendChild(card);
+
+        card.appendChild(
+            info
+        );
+
+
+        list.appendChild(
+            card
+        );
+
+
+
+        /* =====================
+           EVERY 2 VIDEOS = AD
+        ===================== */
+
+        if(
+            (index + 1) % 2 === 0
+        ){
+
+
+            const ad =
+                document.createElement(
+                    "div"
+                );
+
+
+            ad.className =
+                "banner-ad";
+
+
+            ad.innerHTML = `
+
+                <div class="ad-title">
+
+                    Advertisement
+
+                </div>
+
+
+                <div class="ad-box">
+
+                    আপনার বিজ্ঞাপন এখানে
+
+                </div>
+
+            `;
+
+
+            list.appendChild(
+                ad
+            );
+
+        }
+
 
     });
+
 
 
     showPagination();
 
 }
+
 
 
 /* =========================
@@ -608,8 +903,12 @@ function generateThumbnail(
     container
 ){
 
+
     const video =
-        document.createElement("video");
+        document.createElement(
+            "video"
+        );
+
 
     video.src = file;
 
@@ -620,17 +919,22 @@ function generateThumbnail(
     video.preload = "metadata";
 
 
+
     video.addEventListener(
         "loadedmetadata",
         function(){
 
+
             let time = 1;
+
 
             if(video.duration < 1){
 
                 time = 0;
 
-            }else if(video.duration < 5){
+            }
+
+            else if(video.duration < 5){
 
                 time =
                     video.duration / 2;
@@ -638,29 +942,39 @@ function generateThumbnail(
             }
 
 
-            video.currentTime = time;
+
+            video.currentTime =
+                time;
 
         }
     );
+
 
 
     video.addEventListener(
         "seeked",
         function(){
 
+
             const canvas =
-                document.createElement("canvas");
+                document.createElement(
+                    "canvas"
+                );
 
 
             canvas.width =
                 video.videoWidth;
 
+
             canvas.height =
                 video.videoHeight;
 
 
+
             const ctx =
-                canvas.getContext("2d");
+                canvas.getContext(
+                    "2d"
+                );
 
 
             ctx.drawImage(
@@ -672,46 +986,67 @@ function generateThumbnail(
             );
 
 
+
             const image =
-                document.createElement("img");
+                document.createElement(
+                    "img"
+                );
 
 
             image.src =
-                canvas.toDataURL("image/jpeg",0.8);
+                canvas.toDataURL(
+                    "image/jpeg",
+                    0.8
+                );
 
 
             image.alt =
                 "Video Thumbnail";
 
 
-            container.innerHTML = "";
 
-            container.appendChild(image);
+            container.innerHTML =
+                "";
+
+
+            container.appendChild(
+                image
+            );
 
 
             video.remove();
 
         },
+
         {
             once:true
         }
+
     );
+
 
 
     video.addEventListener(
         "error",
         function(){
 
+
             container.innerHTML = `
+
                 <div class="placeholder">
+
                     🎬 Thumbnail
+
                 </div>
+
             `;
 
         }
+
     );
 
 }
+
 
 
 /* =========================
@@ -725,55 +1060,83 @@ function showPagination(){
             "pagination"
         );
 
-    pagination.innerHTML = "";
+
+    pagination.innerHTML =
+        "";
+
 
 
     const totalPages =
         Math.ceil(
-            filteredVideos.length /
+
+            filteredVideos.length
+            /
             videosPerPage
+
         );
 
 
+
     for(
-        let i=1;
-        i<=totalPages;
+        let i = 1;
+        i <= totalPages;
         i++
     ){
 
+
         const button =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
 
 
-        button.innerText = i;
+        button.innerText =
+            i;
 
 
-        if(i === currentPage){
 
-            button.classList.add("active");
+        if(
+            i === currentPage
+        ){
+
+            button.classList.add(
+                "active"
+            );
 
         }
 
 
-        button.onclick = function(){
+
+        button.onclick =
+            function(){
+
 
             currentPage = i;
 
+
             showVideos();
 
+
             window.scrollTo({
+
                 top:0,
+
                 behavior:"smooth"
+
             });
 
         };
 
 
-        pagination.appendChild(button);
+
+        pagination.appendChild(
+            button
+        );
 
     }
 
 }
+
 
 
 /* =========================
@@ -785,6 +1148,7 @@ function playVideo(
     title,
     id
 ){
+
 
     const player =
         document.getElementById(
@@ -810,46 +1174,64 @@ function playVideo(
         );
 
 
-    source.src = file;
+
+    source.src =
+        file;
+
 
     videoPlayer.load();
+
 
 
     playerTitle.innerText =
         title;
 
 
+
     player.style.display =
         "block";
 
 
-    showRecommended(id);
+
+    showRecommended(
+        id
+    );
 
 
-    if(location.hash !== "#video"){
+
+    if(
+        location.hash !== "#video"
+    ){
 
         history.pushState(
             {
                 videoPlayer:true
             },
+
             "",
+
             "#video"
+
         );
 
     }
 
 
+
     videoPlayer.play()
-        .catch(function(error){
+        .catch(
+            function(error){
 
-            console.log(
-                "Video play error:",
-                error
-            );
+                console.log(
+                    "Video play error:",
+                    error
+                );
 
-        });
+            }
+        );
 
 }
+
 
 
 /* =========================
@@ -857,6 +1239,7 @@ function playVideo(
 ========================= */
 
 function closePlayer(){
+
 
     const player =
         document.getElementById(
@@ -870,21 +1253,29 @@ function closePlayer(){
         );
 
 
+
     videoPlayer.pause();
 
-    videoPlayer.currentTime = 0;
+
+    videoPlayer.currentTime =
+        0;
+
 
     player.style.display =
         "none";
 
 
-    if(location.hash === "#video"){
+
+    if(
+        location.hash === "#video"
+    ){
 
         history.back();
 
     }
 
 }
+
 
 
 /* =========================
@@ -894,6 +1285,7 @@ function closePlayer(){
 window.addEventListener(
     "popstate",
     function(){
+
 
         const player =
             document.getElementById(
@@ -907,14 +1299,19 @@ window.addEventListener(
             );
 
 
+
         if(
             player.style.display ===
             "block"
         ){
 
+
             videoPlayer.pause();
 
-            videoPlayer.currentTime = 0;
+
+            videoPlayer.currentTime =
+                0;
+
 
             player.style.display =
                 "none";
@@ -922,7 +1319,9 @@ window.addEventListener(
         }
 
     }
+
 );
+
 
 
 /* =========================
@@ -933,58 +1332,91 @@ function showRecommended(
     currentId
 ){
 
+
     const list =
         document.getElementById(
             "recommendedList"
         );
 
 
-    list.innerHTML = "";
+    list.innerHTML =
+        "";
+
 
 
     const recommended =
         videos
-        .filter(video =>
-            video.id !== currentId &&
+
+        .filter(
+            video =>
+
+            video.id !== currentId
+            &&
             video.file
+
         )
-        .slice(0,6);
+
+        .slice(
+            0,
+            6
+        );
 
 
-    recommended.forEach(video => {
+
+    recommended.forEach(
+        video => {
+
 
         const card =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         card.className =
             "recommend-card";
 
 
-        card.onclick = function(){
+
+        card.onclick =
+            function(){
+
 
             playVideo(
+
                 video.file,
+
                 video.title,
+
                 video.id
+
             );
 
         };
 
 
+
         const thumb =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         thumb.className =
             "recommend-thumb";
 
 
+
         thumb.innerHTML = `
+
             <div class="placeholder">
+
                 🎬
+
             </div>
+
         `;
+
 
 
         generateThumbnail(
@@ -993,28 +1425,46 @@ function showRecommended(
         );
 
 
+
         const info =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         info.className =
             "recommend-info";
 
 
+
         info.innerHTML = `
-            <h3>${video.title}</h3>
+
+            <h3>
+                ${video.title}
+            </h3>
+
         `;
 
 
-        card.appendChild(thumb);
 
-        card.appendChild(info);
+        card.appendChild(
+            thumb
+        );
 
-        list.appendChild(card);
+
+        card.appendChild(
+            info
+        );
+
+
+        list.appendChild(
+            card
+        );
 
     });
 
 }
+
 
 
 /* =========================
@@ -1022,6 +1472,7 @@ function showRecommended(
 ========================= */
 
 function searchVideos(){
+
 
     const search =
         document.getElementById(
@@ -1031,28 +1482,38 @@ function searchVideos(){
         .toLowerCase();
 
 
+
     filteredVideos =
-        videos.filter(video =>
+        videos.filter(
+            video =>
+
             video.title
             .toLowerCase()
             .includes(search)
+
         );
 
 
+
     currentPage = 1;
+
 
     showVideos();
 
 }
 
 
+
 /* =========================
-   START
+   START WEBSITE
 ========================= */
 
 showVideos();
 
+
 </script>
 
+
 </body>
+
 </html>
