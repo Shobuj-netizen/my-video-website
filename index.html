@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Viral Link</title>
@@ -17,24 +14,21 @@
 
 body{
     margin:0;
+    padding:0;
     background:#111;
-    color:#fff;
-    font-family:Arial,sans-serif;
+    color:white;
+    font-family:Arial, sans-serif;
 }
-
 
 /* HEADER */
 
 header{
-    background:#222;
-    padding:15px;
     text-align:center;
+    padding:15px 10px 12px;
+    background:#151515;
+    border-bottom:1px solid #292929;
 }
 
-header h1{
-    margin:0;
-    font-size:24px;
-}
 .site-logo{
     width:60px;
     height:60px;
@@ -45,38 +39,38 @@ header h1{
 
 header h1{
     margin:6px 0 0;
-    font-size:26px;
+    font-size:25px;
     font-weight:bold;
     letter-spacing:1px;
 }
-    
-
-/* CONTAINER */
-
-.container{
-    width:95%;
-    max-width:900px;
-    margin:auto;
-}
-
 
 /* SEARCH */
 
-.search{
-    margin:15px 0;
+.search-box{
+    padding:15px 10px;
+    max-width:700px;
+    margin:auto;
 }
 
-.search input{
+.search-box input{
     width:100%;
-    padding:13px;
-    border-radius:6px;
+    padding:13px 15px;
     border:none;
-    font-size:16px;
     outline:none;
+    border-radius:8px;
+    background:#222;
+    color:white;
+    font-size:16px;
 }
-
 
 /* VIDEO LIST */
+
+.container{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    padding:10px;
+}
 
 .video-list{
     display:flex;
@@ -84,8 +78,7 @@ header h1{
     gap:15px;
 }
 
-
-/* VIDEO CARD */
+/* CARD */
 
 .card{
     background:#1c1c1c;
@@ -101,9 +94,11 @@ header h1{
     transform:translateY(-2px);
 }
 
+/* THUMBNAIL */
+
 .thumbnail{
     width:100%;
-    height:220px;
+    height:230px;
     background:#222;
     display:flex;
     align-items:center;
@@ -118,6 +113,41 @@ header h1{
     object-fit:cover;
 }
 
+.placeholder{
+    color:#aaa;
+    font-size:17px;
+}
+
+/* PLAY BUTTON */
+
+.play-button{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:rgba(229,9,20,0.95);
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+    padding-left:3px;
+
+    box-shadow:0 3px 15px rgba(0,0,0,0.6);
+
+    z-index:5;
+}
+
+/* CARD INFO */
+
 .card-info{
     padding:13px;
 }
@@ -126,7 +156,7 @@ header h1{
     margin:0 0 6px;
     font-size:18px;
     font-weight:bold;
-    color:#fff;
+    color:white;
 }
 
 .card-info p{
@@ -135,199 +165,132 @@ header h1{
     font-size:13px;
 }
 
-
-/* THUMBNAIL */
-
-.thumbnail{
-    width:100%;
-    height:230px;
-    background:#333;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-}
-
-.thumbnail img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.placeholder{
-    color:#aaa;
-    font-size:18px;
-}
-
-
-/* VIDEO INFO */
-
-.card-info{
-    padding:12px;
-}
-
-.card-info h3{
-    margin:0 0 6px;
-    font-size:18px;
-}
-
-.card-info p{
-    margin:0;
-    color:#aaa;
-}
-
-
 /* BANNER AD */
 
 .banner-ad{
     width:100%;
-    margin:0;
-}
+    min-height:70px;
+    background:#181818;
+    border:1px dashed #444;
+    border-radius:8px;
 
-.ad-title{
-    text-align:center;
-    color:#777;
-    font-size:11px;
-    margin-bottom:4px;
-}
-
-.ad-box{
-    width:100%;
-    min-height:90px;
-    background:#222;
-    border:1px dashed #555;
-    border-radius:5px;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#888;
+
+    color:#777;
     font-size:14px;
 }
 
-
-/* TOP AD */
-
-.ad{
-    background:#222;
-    border:1px dashed #555;
-    color:#888;
-    text-align:center;
-    padding:18px;
-    margin:15px 0;
-}
-
-
-/* PAGINATION */
-
-.pagination{
-    display:flex;
-    justify-content:center;
-    gap:7px;
-    margin:25px 0;
-    flex-wrap:wrap;
-}
-
-.pagination button{
-    background:#333;
-    color:#fff;
-    border:none;
-    padding:9px 13px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.pagination button.active{
-    background:#e50914;
-}
-
-
-/* VIDEO PLAYER */
+/* PLAYER */
 
 #player{
     display:none;
-    background:#000;
-    padding:10px;
     position:fixed;
-    inset:0;
     z-index:9999;
-    overflow-y:auto;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:#000;
 }
 
-.player-box{
-    max-width:900px;
-    margin:auto;
+.player-top{
+    width:100%;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 10px;
+
+    background:#111;
 }
-
-
-/* BACK BUTTON */
 
 .close-btn{
-    background:#e50914;
-    color:#fff;
+    background:none;
     border:none;
-    padding:10px 16px;
-    border-radius:5px;
+    color:white;
+
+    font-size:30px;
+
     cursor:pointer;
-    margin-bottom:10px;
-    font-size:15px;
+
+    width:45px;
+    height:45px;
 }
 
+.player-title{
+    font-size:17px;
+    font-weight:bold;
 
-/* VIDEO */
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+    margin-left:5px;
+}
+
+.player-video-box{
+    width:100%;
+    height:calc(100% - 55px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#000;
+}
 
 #videoPlayer{
     width:100%;
-    max-height:70vh;
+    max-height:100%;
     background:#000;
 }
-
-
-/* PLAYER TITLE */
-
-.player-title{
-    font-size:20px;
-    margin:12px 0;
-}
-
 
 /* RECOMMENDED */
 
 .recommended{
-    margin-top:20px;
+    margin-top:25px;
 }
 
 .recommended h2{
     font-size:20px;
+    margin-bottom:12px;
 }
 
-.recommended-list{
+.recommend-list{
     display:flex;
     flex-direction:column;
     gap:10px;
 }
 
-
-/* RECOMMENDED CARD */
-
 .recommend-card{
     display:flex;
-    background:#222;
-    border-radius:6px;
-    overflow:hidden;
+    gap:10px;
+
+    background:#1c1c1c;
+    padding:8px;
+
+    border-radius:8px;
+
     cursor:pointer;
 }
 
-
-/* RECOMMENDED THUMB */
-
 .recommend-thumb{
-    width:130px;
-    height:80px;
+    width:110px;
+    height:70px;
+
     background:#333;
+
+    border-radius:5px;
+
+    overflow:hidden;
+
     flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
 
 .recommend-thumb img{
@@ -336,18 +299,62 @@ header h1{
     object-fit:cover;
 }
 
-
-/* RECOMMENDED INFO */
-
 .recommend-info{
-    padding:10px;
+    padding:5px;
 }
 
 .recommend-info h3{
     margin:0;
+
     font-size:15px;
+    color:white;
 }
 
+/* PAGINATION */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:7px;
+
+    margin:25px 0;
+    flex-wrap:wrap;
+}
+
+.pagination button{
+    border:none;
+
+    background:#222;
+    color:white;
+
+    padding:9px 13px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+}
+
+.pagination button.active{
+    background:#e50914;
+}
+
+.pagination button:hover{
+    background:#e50914;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    color:#777;
+
+    font-size:13px;
+
+    padding:25px 10px;
+}
 
 /* MOBILE */
 
@@ -357,34 +364,23 @@ header h1{
         height:210px;
     }
 
-    .recomend-thumb
-    width:110px;
-    height:70pxheader}
-
     header h1{
         font-size:21px;
     }
-.play-button{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    background:rgba(229,9,20,0.95);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    padding-left:3px;
-    box-shadow:0 3px 15px rgba(0,0,0,0.5);
-    z-index:2;
-}
-    
-style>
 
+    .play-button{
+        width:55px;
+        height:55px;
+        font-size:24px;
+    }
+
+    .recommend-thumb{
+        width:110px;
+        height:70px;
+    }
+}
+
+</style>
 </head>
 
 
@@ -405,49 +401,51 @@ style>
 
 </header>
 
-<!-- MAIN -->
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="ভিডিও খুঁজুন..."
+        oninput="searchVideos()"
+    >
+
+</div>
+
+
+<!-- VIDEO AREA -->
 
 <div class="container">
 
-
-    <!-- SEARCH -->
-
-    <div class="search">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="ভিডিও খুঁজুন..."
-            oninput="searchVideos()"
-        >
-
-    </div>
-
-
-    <!-- TOP AD -->
-
-    <div class="ad">
-
-        Advertisement
-
-    </div>
-
-
-    <!-- VIDEO LIST -->
-
     <div
         id="videoList"
-        class="video-list">
-    </div>
+        class="video-list"
+    ></div>
 
 
     <!-- PAGINATION -->
 
     <div
         id="pagination"
-        class="pagination">
-    </div>
+        class="pagination"
+    ></div>
 
+
+    <!-- RECOMMENDED -->
+
+    <div class="recommended">
+
+        <h2>Recommended Videos</h2>
+
+        <div
+            id="recommendList"
+            class="recommend-list"
+        ></div>
+
+    </div>
 
 </div>
 
@@ -456,81 +454,62 @@ style>
 
 <div id="player">
 
-    <div class="player-box">
-
-
-        <!-- BACK BUTTON -->
+    <div class="player-top">
 
         <button
             class="close-btn"
-            onclick="closePlayer()">
-
-            ← Back
-
+            onclick="closePlayer()"
+        >
+            ×
         </button>
-
-
-        <!-- PLAYER AD -->
-
-        <div class="ad">
-
-            Advertisement
-
-        </div>
-
-
-        <!-- TITLE -->
 
         <div
             id="playerTitle"
-            class="player-title">
+            class="player-title"
+        >
+            Video
         </div>
 
+    </div>
 
-        <!-- VIDEO -->
+
+    <div class="player-video-box">
 
         <video
             id="videoPlayer"
             controls
             controlsList="nodownload"
             oncontextmenu="return false;"
-            playsinline>
+        >
 
             <source
                 id="videoSource"
                 src=""
-                type="video/mp4">
+                type="video/mp4"
+            >
+
+            Your browser does not support video.
 
         </video>
-
-
-        <!-- RECOMMENDED -->
-
-        <div class="recommended">
-
-            <h2>
-                Recommended Videos
-            </h2>
-
-            <div
-                id="recommendedList"
-                class="recommended-list">
-            </div>
-
-        </div>
-
 
     </div>
 
 </div>
 
 
-<!-- JAVASCRIPT -->
+<footer>
+
+    © 2026 Viral Link
+
+</footer>
+
+
 
 <script>
 
-
-/* VIDEO DATA */
+/* =========================
+   VIDEO DATA
+========================= */
 
 const videos = [
 
@@ -609,6 +588,10 @@ const videos = [
 ];
 
 
+/* =========================
+   SETTINGS
+========================= */
+
 const videosPerPage = 10;
 
 let currentPage = 1;
@@ -616,7 +599,9 @@ let currentPage = 1;
 let filteredVideos = videos;
 
 
-/* SHOW VIDEOS */
+/* =========================
+   SHOW VIDEOS
+========================= */
 
 function showVideos(){
 
@@ -625,17 +610,20 @@ function showVideos(){
 
     list.innerHTML = "";
 
+
     const start =
         (currentPage - 1) * videosPerPage;
 
+
     const end =
         start + videosPerPage;
+
 
     const pageVideos =
         filteredVideos.slice(start,end);
 
 
-    pageVideos.forEach((video,index)=>{
+    pageVideos.forEach(function(video,index){
 
         const card =
             document.createElement("div");
@@ -664,17 +652,22 @@ function showVideos(){
         thumbnail.className = "thumbnail";
 
 
+        /* VIDEO EXISTS */
+
         if(video.file){
 
             thumbnail.innerHTML = `
-    <div class="placeholder">
-        Thumbnail loading...
-    </div>
 
-    <div class="play-button">▶</div>
-`;
+                <div class="placeholder">
+                    Thumbnail loading...
+                </div>
+
+                <div class="play-button">
+                    ▶
+                </div>
 
             `;
+
 
             generateThumbnail(
                 video.file,
@@ -683,14 +676,15 @@ function showVideos(){
 
         }
 
+
+        /* VIDEO NOT UPLOADED */
+
         else{
 
             thumbnail.innerHTML = `
 
                 <div class="placeholder">
-
-                    🎬 ভিডিও নেই
-
+                    Video Coming Soon
                 </div>
 
             `;
@@ -706,9 +700,13 @@ function showVideos(){
 
         info.innerHTML = `
 
-            <h3>${video.title}</h3>
+            <h3>
+                ${video.title}
+            </h3>
 
-            <p>ভিডিও</p>
+            <p>
+                Video
+            </p>
 
         `;
 
@@ -720,32 +718,20 @@ function showVideos(){
         list.appendChild(card);
 
 
-        /* EVERY 2 VIDEOS = AD */
+        /* BANNER AFTER EVERY 2 VIDEOS */
 
-        if((index + 1) % 2 === 0){
+        if(
+            (index + 1) % 2 === 0 &&
+            index !== pageVideos.length - 1
+        ){
 
             const ad =
                 document.createElement("div");
 
             ad.className = "banner-ad";
 
-
-            ad.innerHTML = `
-
-                <div class="ad-title">
-
-                    Advertisement
-
-                </div>
-
-                <div class="ad-box">
-
-                    আপনার বিজ্ঞাপন এখানে
-
-                </div>
-
-            `;
-
+            ad.innerHTML =
+                "ADVERTISEMENT";
 
             list.appendChild(ad);
 
@@ -759,41 +745,45 @@ function showVideos(){
 }
 
 
-/* AUTO THUMBNAIL */
+/* =========================
+   GENERATE THUMBNAIL
+========================= */
 
-function generateThumbnail(file,container){
+function generateThumbnail(
+    file,
+    container
+){
 
     const video =
         document.createElement("video");
 
-    video.src = "./" + file;
+
+    video.src =
+        "./" + file;
+
 
     video.muted = true;
-
-    video.playsInline = true;
 
     video.preload = "metadata";
 
 
     video.addEventListener(
-        "loadedmetadata",
+        "loadeddata",
         function(){
 
-            let time = 1;
+            try{
 
-            if(video.duration < 1){
-
-                time = 0;
+                video.currentTime = 1;
 
             }
+            catch(error){
 
-            else if(video.duration < 5){
-
-                time = video.duration / 2;
+                createThumbnailImage(
+                    video,
+                    container
+                );
 
             }
-
-            video.currentTime = time;
 
         }
     );
@@ -803,53 +793,11 @@ function generateThumbnail(file,container){
         "seeked",
         function(){
 
-            const canvas =
-                document.createElement("canvas");
-
-            canvas.width =
-                video.videoWidth;
-
-            canvas.height =
-                video.videoHeight;
-
-
-            const ctx =
-                canvas.getContext("2d");
-
-
-            ctx.drawImage(
+            createThumbnailImage(
                 video,
-                0,
-                0,
-                canvas.width,
-                canvas.height
+                container
             );
 
-
-            const image =
-                document.createElement("img");
-
-
-            image.src =
-                canvas.toDataURL(
-                    "image/jpeg",
-                    0.8
-                );
-
-
-            image.alt =
-                "Video Thumbnail";
-
-
-            container.innerHTML = "";
-
-            container.appendChild(image);
-
-            video.remove();
-
-        },
-        {
-            once:true
         }
     );
 
@@ -861,9 +809,11 @@ function generateThumbnail(file,container){
             container.innerHTML = `
 
                 <div class="placeholder">
+                    Thumbnail unavailable
+                </div>
 
-                    🎬 Thumbnail
-
+                <div class="play-button">
+                    ▶
                 </div>
 
             `;
@@ -874,98 +824,151 @@ function generateThumbnail(file,container){
 }
 
 
-/* PAGINATION */
+/* =========================
+   CREATE THUMBNAIL IMAGE
+========================= */
 
-function showPagination(){
+function createThumbnailImage(
+    video,
+    container
+){
 
-    const pagination =
-        document.getElementById("pagination");
-
-    pagination.innerHTML = "";
+    const canvas =
+        document.createElement("canvas");
 
 
-    const totalPages =
-        Math.ceil(
-            filteredVideos.length /
-            videosPerPage
+    canvas.width = 640;
+
+    canvas.height = 360;
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    try{
+
+        ctx.drawImage(
+            video,
+            0,
+            0,
+            canvas.width,
+            canvas.height
         );
 
 
-    for(
-        let i = 1;
-        i <= totalPages;
-        i++
-    ){
-
-        const button =
-            document.createElement("button");
-
-        button.innerText = i;
+        const image =
+            document.createElement("img");
 
 
-        if(i === currentPage){
-
-            button.classList.add("active");
-
-        }
-
-
-        button.onclick = function(){
-
-            currentPage = i;
-
-            showVideos();
-
-            window.scrollTo({
-
-                top:0,
-
-                behavior:"smooth"
-
-            });
-
-        };
+        image.src =
+            canvas.toDataURL(
+                "image/jpeg",
+                0.85
+            );
 
 
-        pagination.appendChild(button);
+        image.alt =
+            "Video thumbnail";
+
+
+        container.innerHTML = "";
+
+        container.appendChild(image);
+
+
+        /* ADD PLAY BUTTON AGAIN */
+
+        const playButton =
+            document.createElement("div");
+
+
+        playButton.className =
+            "play-button";
+
+
+        playButton.innerText =
+            "▶";
+
+
+        container.appendChild(
+            playButton
+        );
+
+    }
+    catch(error){
+
+        container.innerHTML = `
+
+            <div class="placeholder">
+                Thumbnail unavailable
+            </div>
+
+            <div class="play-button">
+                ▶
+            </div>
+
+        `;
 
     }
 
 }
 
 
-/* PLAY VIDEO */
+/* =========================
+   PLAY VIDEO
+========================= */
 
-function playVideo(file,title,id){
+function playVideo(
+    file,
+    title,
+    id
+){
 
     const player =
         document.getElementById("player");
 
+
     const videoPlayer =
-        document.getElementById("videoPlayer");
+        document.getElementById(
+            "videoPlayer"
+        );
+
 
     const source =
-        document.getElementById("videoSource");
+        document.getElementById(
+            "videoSource"
+        );
+
 
     const playerTitle =
-        document.getElementById("playerTitle");
+        document.getElementById(
+            "playerTitle"
+        );
 
 
-    source.src = "./" + file;
+    /* IMPORTANT */
+
+    source.src =
+        "./" + file;
+
 
     videoPlayer.load();
 
 
-    playerTitle.innerText = title;
+    playerTitle.innerText =
+        title;
 
 
-    player.style.display = "block";
+    player.style.display =
+        "block";
 
 
-    showRecommended(id);
+    /* BACK BUTTON SUPPORT */
 
-
-    if(location.hash !== "#video"){
+    if(
+        location.hash !== "#video"
+    ){
 
         history.pushState(
             {
@@ -992,25 +995,38 @@ function playVideo(file,title,id){
 }
 
 
-/* CLOSE PLAYER */
+/* =========================
+   CLOSE PLAYER
+========================= */
 
 function closePlayer(){
 
     const player =
-        document.getElementById("player");
+        document.getElementById(
+            "player"
+        );
+
 
     const videoPlayer =
-        document.getElementById("videoPlayer");
+        document.getElementById(
+            "videoPlayer"
+        );
 
 
     videoPlayer.pause();
 
-    videoPlayer.currentTime = 0;
 
-    player.style.display = "none";
+    videoPlayer.currentTime =
+        0;
 
 
-    if(location.hash === "#video"){
+    player.style.display =
+        "none";
+
+
+    if(
+        location.hash === "#video"
+    ){
 
         history.back();
 
@@ -1019,28 +1035,38 @@ function closePlayer(){
 }
 
 
-/* ANDROID BACK BUTTON */
+/* =========================
+   ANDROID BACK BUTTON
+========================= */
 
 window.addEventListener(
     "popstate",
     function(){
 
         const player =
-            document.getElementById("player");
+            document.getElementById(
+                "player"
+            );
+
 
         const videoPlayer =
-            document.getElementById("videoPlayer");
+            document.getElementById(
+                "videoPlayer"
+            );
 
 
         if(
-            player.style.display === "block"
+            player.style.display ===
+            "block"
         ){
 
             videoPlayer.pause();
 
-            videoPlayer.currentTime = 0;
+            videoPlayer.currentTime =
+                0;
 
-            player.style.display = "none";
+            player.style.display =
+                "none";
 
         }
 
@@ -1048,115 +1074,189 @@ window.addEventListener(
 );
 
 
-/* RECOMMENDED VIDEOS */
+/* =========================
+   PAGINATION
+========================= */
 
-function showRecommended(currentId){
+function showPagination(){
 
-    const list =
+    const pagination =
         document.getElementById(
-            "recommendedList"
+            "pagination"
         );
 
-    list.innerHTML = "";
+
+    pagination.innerHTML = "";
 
 
-    const recommended =
-        videos
-        .filter(
-            video =>
-                video.id !== currentId &&
-                video.file
-        )
-        .slice(0,6);
+    const totalPages =
+        Math.ceil(
+            filteredVideos.length /
+            videosPerPage
+        );
 
 
-    recommended.forEach(video=>{
+    if(totalPages <= 1){
 
-        const card =
-            document.createElement("div");
+        return;
 
-        card.className =
-            "recommend-card";
+    }
 
 
-        card.onclick = function(){
+    /* PREVIOUS */
 
-            playVideo(
-                video.file,
-                video.title,
-                video.id
+    if(currentPage > 1){
+
+        const previous =
+            document.createElement(
+                "button"
             );
 
-        };
+
+        previous.innerText =
+            "‹";
 
 
-        const thumb =
-            document.createElement("div");
+        previous.onclick =
+            function(){
 
-        thumb.className =
-            "recommend-thumb";
+                currentPage--;
 
+                showVideos();
 
-        thumb.innerHTML = `
+                window.scrollTo(
+                    0,
+                    0
+                );
 
-            <div class="placeholder">
-
-                🎬
-
-            </div>
-
-        `;
+            };
 
 
-        generateThumbnail(
-            video.file,
-            thumb
+        pagination.appendChild(
+            previous
         );
 
-
-        const info =
-            document.createElement("div");
-
-        info.className =
-            "recommend-info";
+    }
 
 
-        info.innerHTML = `
+    /* PAGE NUMBERS */
 
-            <h3>${video.title}</h3>
+    for(
+        let i = 1;
+        i <= totalPages;
+        i++
+    ){
 
-        `;
+        const button =
+            document.createElement(
+                "button"
+            );
 
 
-        card.appendChild(thumb);
+        button.innerText =
+            i;
 
-        card.appendChild(info);
 
-        list.appendChild(card);
+        if(
+            i === currentPage
+        ){
 
-    });
+            button.className =
+                "active";
+
+        }
+
+
+        button.onclick =
+            function(){
+
+                currentPage =
+                    i;
+
+                showVideos();
+
+                window.scrollTo(
+                    0,
+                    0
+                );
+
+            };
+
+
+        pagination.appendChild(
+            button
+        );
+
+    }
+
+
+    /* NEXT */
+
+    if(
+        currentPage < totalPages
+    ){
+
+        const next =
+            document.createElement(
+                "button"
+            );
+
+
+        next.innerText =
+            "›";
+
+
+        next.onclick =
+            function(){
+
+                currentPage++;
+
+                showVideos();
+
+                window.scrollTo(
+                    0,
+                    0
+                );
+
+            };
+
+
+        pagination.appendChild(
+            next
+        );
+
+    }
 
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 function searchVideos(){
 
-    const search =
+    const input =
         document.getElementById(
             "searchInput"
-        )
-        .value
-        .toLowerCase();
+        );
+
+
+    const searchText =
+        input.value
+        .toLowerCase()
+        .trim();
 
 
     filteredVideos =
         videos.filter(
-            video =>
-                video.title
-                .toLowerCase()
-                .includes(search)
+            function(video){
+
+                return video.title
+                    .toLowerCase()
+                    .includes(searchText);
+
+            }
         );
 
 
@@ -1167,13 +1267,226 @@ function searchVideos(){
 }
 
 
-/* START */
+/* =========================
+   RECOMMENDED VIDEOS
+========================= */
+
+function showRecommended(){
+
+    const list =
+        document.getElementById(
+            "recommendList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    const recommended =
+        videos
+        .filter(
+            function(video){
+
+                return video.file;
+
+            }
+        )
+        .slice(0,5);
+
+
+    recommended.forEach(
+        function(video){
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "recommend-card";
+
+
+            card.onclick =
+                function(){
+
+                    playVideo(
+                        video.file,
+                        video.title,
+                        video.id
+                    );
+
+                };
+
+
+            const thumb =
+                document.createElement(
+                    "div"
+                );
+
+
+            thumb.className =
+                "recommend-thumb";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.alt =
+                video.title;
+
+
+            thumb.appendChild(
+                img
+            );
+
+
+            /* MAKE RECOMMEND THUMBNAIL */
+
+            makeRecommendedThumbnail(
+                video.file,
+                img
+            );
+
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+
+            info.className =
+                "recommend-info";
+
+
+            info.innerHTML = `
+
+                <h3>
+                    ${video.title}
+                </h3>
+
+            `;
+
+
+            card.appendChild(
+                thumb
+            );
+
+
+            card.appendChild(
+                info
+            );
+
+
+            list.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   RECOMMENDED THUMBNAIL
+========================= */
+
+function makeRecommendedThumbnail(
+    file,
+    image
+){
+
+    const video =
+        document.createElement(
+            "video"
+        );
+
+
+    video.src =
+        "./" + file;
+
+
+    video.muted = true;
+
+    video.preload =
+        "metadata";
+
+
+    video.addEventListener(
+        "loadeddata",
+        function(){
+
+            try{
+
+                video.currentTime = 1;
+
+            }
+            catch(e){}
+
+        }
+    );
+
+
+    video.addEventListener(
+        "seeked",
+        function(){
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            canvas.width = 320;
+
+            canvas.height = 180;
+
+
+            const ctx =
+                canvas.getContext(
+                    "2d"
+                );
+
+
+            try{
+
+                ctx.drawImage(
+                    video,
+                    0,
+                    0,
+                    320,
+                    180
+                );
+
+
+                image.src =
+                    canvas.toDataURL(
+                        "image/jpeg",
+                        0.8
+                    );
+
+            }
+            catch(e){}
+
+        }
+    );
+
+}
+
+
+/* =========================
+   START WEBSITE
+========================= */
 
 showVideos();
 
+showRecommended();
+
 </script>
 
-
 </body>
-
 </html>
