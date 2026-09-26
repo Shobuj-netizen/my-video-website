@@ -593,6 +593,7 @@ footer strong{
 
 /* PLAY VIDEO */
 
+<script>
 function playVideo(video){
 
     const player =
@@ -612,8 +613,9 @@ function playVideo(video){
 
     videoPlayer.play();
 
+    // Browser history-তে ভিডিও প্লেয়ারের একটি ধাপ যোগ করা
+    history.pushState({ videoPlayer: true }, "", "#video");
 }
-
 
 
 /* CLOSE PLAYER */
@@ -632,7 +634,34 @@ function closePlayer(){
 
     player.style.display = "none";
 
+    // ভিডিও বন্ধ করলে আগের history-তে ফিরে যাওয়া
+    if (location.hash === "#video") {
+        history.back();
+    }
 }
+
+
+/* ANDROID BACK BUTTON */
+
+window.addEventListener("popstate", function(){
+
+    const player =
+        document.getElementById("player");
+
+    const videoPlayer =
+        document.getElementById("videoPlayer");
+
+    // ভিডিও খোলা থাকলে Back চাপলে শুধু ভিডিও বন্ধ হবে
+    if (player.style.display === "block") {
+
+        videoPlayer.pause();
+
+        videoPlayer.currentTime = 0;
+
+        player.style.display = "none";
+    }
+});
+</script>
 
 
 
