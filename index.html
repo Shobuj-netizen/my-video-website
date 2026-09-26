@@ -174,8 +174,6 @@ nav a{
     text-shadow:0 2px 5px #000;
 }
 
-/* DIFFERENT POSTER STYLES */
-
 .poster.movie{
     background:
     linear-gradient(135deg,#491111,#111);
@@ -239,6 +237,10 @@ nav a{
     font-size:38px;
     cursor:pointer;
     color:#fff;
+}
+
+.close::after{
+    content:"×";
 }
 
 /* FOOTER */
@@ -307,9 +309,7 @@ footer strong{
 </style>
 </head>
 
-
 <body>
-
 
 <!-- HEADER -->
 
@@ -328,7 +328,6 @@ footer strong{
 </header>
 
 
-
 <!-- HERO -->
 
 <section class="hero">
@@ -345,7 +344,6 @@ footer strong{
 </section>
 
 
-
 <!-- SEARCH -->
 
 <div class="search-box">
@@ -358,7 +356,6 @@ footer strong{
     >
 
 </div>
-
 
 
 <!-- CATEGORY -->
@@ -388,15 +385,11 @@ footer strong{
 </div>
 
 
-
 <!-- ADVERTISEMENT -->
 
 <div class="ad">
-
     এখানে আপনার বিজ্ঞাপনের কোড বসবে
-
 </div>
-
 
 
 <!-- FEATURED -->
@@ -408,34 +401,32 @@ footer strong{
 
 <section class="videos" id="videos">
 
-
     <!-- VIDEO 1 -->
 
     <div
-    class="card movie"
-    onclick="playVideo('salar1.mp4')"
-    </div>
-        
-    <img
-        src="ami.jpg"
-        alt="salar"
-        style="width:100%; height:245px; object-fit:cover;"
+        class="card movie"
+        onclick="playVideo('salar1.mp4')"
     >
 
-    <div class="card-info">
+        <img
+            src="ami.jpg"
+            alt="আমার প্রথম ভিডিও"
+            style="width:100%; height:245px; object-fit:cover;"
+        >
 
-        <h3>
-            আমার প্রথম ভিডিও
-        </h3>
+        <div class="card-info">
 
-        <p>
-            Movie
-        </p>
+            <h3>
+                আমার প্রথম ভিডিও
+            </h3>
+
+            <p>
+                Movie
+            </p>
+
+        </div>
 
     </div>
-
-</div>
-
 
 
     <!-- VIDEO 2 -->
@@ -468,7 +459,6 @@ footer strong{
     </div>
 
 
-
     <!-- VIDEO 3 -->
 
     <div
@@ -497,7 +487,6 @@ footer strong{
         </div>
 
     </div>
-
 
 
     <!-- VIDEO 4 -->
@@ -529,19 +518,14 @@ footer strong{
 
     </div>
 
-
 </section>
-
 
 
 <!-- ADVERTISEMENT -->
 
 <div class="ad">
-
     আপনার বিজ্ঞাপনের জায়গা
-
 </div>
-
 
 
 <!-- VIDEO PLAYER -->
@@ -551,9 +535,7 @@ footer strong{
     <div
         class="close"
         onclick="closePlayer()"
-    >
-        
-    </div>
+    ></div>
 
     <video
         id="videoPlayer"
@@ -573,7 +555,6 @@ footer strong{
 </div>
 
 
-
 <!-- FOOTER -->
 
 <footer>
@@ -587,13 +568,10 @@ footer strong{
 </footer>
 
 
-
 <script>
-
 
 /* PLAY VIDEO */
 
-<script>
 function playVideo(video){
 
     const player =
@@ -611,10 +589,26 @@ function playVideo(video){
 
     player.style.display = "block";
 
-    videoPlayer.play();
+    videoPlayer.play().catch(function(error){
+        console.log("Video play error:", error);
+    });
 
-    history.pushState({ videoPlayer: true }, "", "#video");
+    /*
+       ভিডিও খোলার সময় browser history-তে
+       একটি আলাদা ধাপ তৈরি হবে।
+    */
+
+    if(location.hash !== "#video"){
+        history.pushState(
+            { videoPlayer: true },
+            "",
+            "#video"
+        );
+    }
+
 }
+
+
 /* CLOSE PLAYER */
 
 function closePlayer(){
@@ -631,9 +625,15 @@ function closePlayer(){
 
     player.style.display = "none";
 
-    if (location.hash === "#video") {
+    /*
+       X button দিয়ে বন্ধ করলে
+       history-র ভিডিও ধাপটিও সরবে।
+    */
+
+    if(location.hash === "#video"){
         history.back();
     }
+
 }
 
 
@@ -647,17 +647,22 @@ window.addEventListener("popstate", function(){
     const videoPlayer =
         document.getElementById("videoPlayer");
 
-    if (player.style.display === "block") {
+    /*
+       Android Back চাপলে যদি ভিডিও খোলা থাকে,
+       তাহলে শুধু ভিডিও বন্ধ হবে।
+    */
+
+    if(player.style.display === "block"){
 
         videoPlayer.pause();
 
         videoPlayer.currentTime = 0;
 
         player.style.display = "none";
-    }
-});
-</script>
 
+    }
+
+});
 
 
 /* SEARCH */
@@ -693,7 +698,6 @@ function searchVideo(){
     });
 
 }
-
 
 
 /* CATEGORY FILTER */
@@ -733,7 +737,6 @@ function filterVideo(category){
 }
 
 </script>
-
 
 </body>
 </html>
