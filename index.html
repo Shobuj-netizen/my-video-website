@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My Video World</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -13,197 +15,359 @@
 }
 
 body{
-    background:#111;
-    color:white;
-    font-family:Arial, sans-serif;
+    background:#0b0b0b;
+    color:#fff;
+    font-family:Arial, "Noto Sans Bengali", sans-serif;
 }
 
+/* HEADER */
+
 header{
-    background:#181818;
-    padding:18px 5%;
+    background:#151515;
+    padding:16px 5%;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:100;
+    border-bottom:1px solid #292929;
 }
 
 .logo{
+    color:#e50914;
     font-size:25px;
     font-weight:bold;
-    color:#e50914;
+    line-height:1.1;
+}
+
+nav{
+    display:flex;
+    gap:18px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin-left:20px;
-}
-
-.hero{
-    padding:60px 6%;
-    background:linear-gradient(90deg,#111 30%,#222);
-}
-
-.hero h1{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:#ccc;
-    max-width:600px;
-}
-
-.search{
-    padding:25px 6%;
-    text-align:center;
-}
-
-.search input{
-    width:90%;
-    max-width:600px;
-    padding:14px;
-    border:none;
-    border-radius:5px;
     font-size:16px;
 }
 
+/* HERO */
+
+.hero{
+    padding:70px 6%;
+    background:
+    linear-gradient(90deg,#090909,#202020);
+}
+
+.hero h1{
+    font-size:42px;
+    max-width:650px;
+    line-height:1.25;
+    margin-bottom:18px;
+}
+
+.hero p{
+    color:#bbb;
+    font-size:18px;
+    line-height:1.7;
+    max-width:650px;
+}
+
+/* SEARCH */
+
+.search-box{
+    padding:28px 6% 10px;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    border:0;
+    border-radius:8px;
+    font-size:17px;
+    outline:none;
+}
+
+/* CATEGORY */
+
 .categories{
-    padding:10px 6%;
+    padding:15px 6%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 .categories button{
-    padding:10px 18px;
-    margin:5px;
     border:0;
-    border-radius:5px;
     background:#e50914;
-    color:white;
+    color:#fff;
+    padding:11px 20px;
+    border-radius:6px;
+    font-size:15px;
     cursor:pointer;
 }
 
-.videos{
-    padding:25px 6%;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+.categories button:hover{
+    background:#b20710;
 }
 
-.card{
-    background:#1d1d1d;
-    border-radius:8px;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.card img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-}
-
-.card h3{
-    padding:12px;
-}
+/* AD */
 
 .ad{
     margin:25px 6%;
     height:100px;
-    background:#222;
     border:1px dashed #555;
+    background:#181818;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#aaa;
+    color:#888;
+    text-align:center;
 }
+
+/* SECTION */
+
+.section-title{
+    padding:25px 6% 10px;
+    font-size:25px;
+}
+
+/* VIDEO GRID */
+
+.videos{
+    padding:10px 6% 30px;
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+
+/* CARD */
+
+.card{
+    background:#181818;
+    border-radius:8px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+/* POSTER */
+
+.poster{
+    height:245px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:15px;
+    font-size:23px;
+    font-weight:bold;
+    background:
+    linear-gradient(135deg,#252525,#101010);
+}
+
+.poster span{
+    color:#fff;
+    text-shadow:0 2px 5px #000;
+}
+
+/* DIFFERENT POSTER STYLES */
+
+.poster.movie{
+    background:
+    linear-gradient(135deg,#491111,#111);
+}
+
+.poster.drama{
+    background:
+    linear-gradient(135deg,#102c49,#111);
+}
+
+.poster.music{
+    background:
+    linear-gradient(135deg,#39205a,#111);
+}
+
+.poster.nature{
+    background:
+    linear-gradient(135deg,#174c31,#111);
+}
+
+/* CARD TEXT */
+
+.card-info{
+    padding:12px;
+}
+
+.card-info h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.card-info p{
+    color:#888;
+    font-size:13px;
+}
+
+/* PLAYER */
 
 .player{
     display:none;
     position:fixed;
+    z-index:9999;
     inset:0;
-    background:rgba(0,0,0,.95);
-    z-index:999;
-    padding:50px 5%;
+    background:rgba(0,0,0,.96);
+    padding:60px 5% 30px;
 }
 
 .player video{
     width:100%;
     max-width:1000px;
+    max-height:75vh;
     display:block;
     margin:auto;
-    max-height:75vh;
+    background:#000;
 }
 
 .close{
     position:absolute;
-    right:25px;
-    top:15px;
-    font-size:35px;
+    right:20px;
+    top:12px;
+    font-size:38px;
     cursor:pointer;
+    color:#fff;
 }
+
+/* FOOTER */
 
 footer{
-    margin-top:40px;
-    padding:30px;
+    margin-top:30px;
+    padding:35px 20px;
+    background:#151515;
     text-align:center;
-    background:#181818;
-    color:#888;
+    color:#777;
 }
 
+footer strong{
+    color:#e50914;
+}
+
+/* MOBILE */
+
 @media(max-width:600px){
-    .hero h1{
-        font-size:28px;
+
+    header{
+        padding:15px 5%;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    nav{
+        gap:10px;
     }
 
     nav a{
-        margin-left:8px;
         font-size:13px;
     }
 
-    .card img{
-        height:220px;
+    .hero{
+        padding:55px 6%;
     }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .videos{
+        grid-template-columns:
+        repeat(2,1fr);
+        gap:12px;
+    }
+
+    .poster{
+        height:210px;
+        font-size:18px;
+    }
+
+    .card-info h3{
+        font-size:15px;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- HEADER -->
+
 <header>
-    <div class="logo">MY VIDEO WORLD</div>
+
+    <div class="logo">
+        MY VIDEO<br>WORLD
+    </div>
 
     <nav>
         <a href="#">Home</a>
         <a href="#videos">Videos</a>
         <a href="#categories">Categories</a>
     </nav>
+
 </header>
 
 
+
+<!-- HERO -->
+
 <section class="hero">
-    <h1>আপনার পছন্দের ভিডিও দেখুন</h1>
+
+    <h1>
+        আপনার পছন্দের ভিডিও দেখুন
+    </h1>
+
     <p>
         বিভিন্ন ধরনের ভিডিও এক জায়গায় দেখুন।
-        অনলাইনে স্ট্রিমিং করুন সহজেই।
+        আপনার পছন্দের ভিডিও অনলাইনে স্ট্রিমিং করুন।
     </p>
+
 </section>
 
 
-<div class="search">
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
     <input
         type="text"
         id="search"
-        placeholder="ভিডিও খুঁজুন..."
+        placeholder="🔍 ভিডিও খুঁজুন..."
         onkeyup="searchVideo()"
     >
+
 </div>
 
 
-<section class="categories" id="categories">
 
-    <button onclick="filterVideo('all')">সব</button>
+<!-- CATEGORY -->
+
+<div class="categories" id="categories">
+
+    <button onclick="filterVideo('all')">
+        সব
+    </button>
 
     <button onclick="filterVideo('movie')">
         Movie
@@ -217,52 +381,181 @@ footer{
         Music
     </button>
 
-</section>
+    <button onclick="filterVideo('nature')">
+        Nature
+    </button>
+
+</div>
 
 
-<!-- Advertisement Area -->
+
+<!-- ADVERTISEMENT -->
 
 <div class="ad">
-    এখানে আপনার বিজ্ঞাপন কোড বসবে
+
+    এখানে আপনার বিজ্ঞাপনের কোড বসবে
+
 </div>
+
+
+
+<!-- FEATURED -->
+
+<h2 class="section-title">
+    🔥 Featured Videos
+</h2>
 
 
 <section class="videos" id="videos">
 
-    <div class="card movie" onclick="playVideo('videos/video1.mp4')">
 
-        <img src="https://via.placeholder.com/400x550">
+    <!-- VIDEO 1 -->
 
-        <h3>ভিডিও ১</h3>
+    <div
+        class="card movie"
+        onclick="playVideo('videos/video1.mp4')"
+    >
+
+        <div class="poster movie">
+            <span>
+                🎬<br>
+                FEATURED<br>
+                VIDEO
+            </span>
+        </div>
+
+        <div class="card-info">
+
+            <h3>
+                Featured Video 1
+            </h3>
+
+            <p>
+                Movie
+            </p>
+
+        </div>
 
     </div>
 
 
-    <div class="card drama" onclick="playVideo('videos/video2.mp4')">
 
-        <img src="https://via.placeholder.com/400x550">
+    <!-- VIDEO 2 -->
 
-        <h3>ড্রামা ভিডিও</h3>
+    <div
+        class="card drama"
+        onclick="playVideo('videos/video2.mp4')"
+    >
+
+        <div class="poster drama">
+            <span>
+                📺<br>
+                DRAMA<br>
+                VIDEO
+            </span>
+        </div>
+
+        <div class="card-info">
+
+            <h3>
+                Drama Video
+            </h3>
+
+            <p>
+                Drama
+            </p>
+
+        </div>
 
     </div>
 
 
-    <div class="card music" onclick="playVideo('videos/video3.mp4')">
 
-        <img src="https://via.placeholder.com/400x550">
+    <!-- VIDEO 3 -->
 
-        <h3>মিউজিক ভিডিও</h3>
+    <div
+        class="card music"
+        onclick="playVideo('videos/video3.mp4')"
+    >
+
+        <div class="poster music">
+            <span>
+                🎵<br>
+                MUSIC<br>
+                VIDEO
+            </span>
+        </div>
+
+        <div class="card-info">
+
+            <h3>
+                Music Video
+            </h3>
+
+            <p>
+                Music
+            </p>
+
+        </div>
 
     </div>
+
+
+
+    <!-- VIDEO 4 -->
+
+    <div
+        class="card nature"
+        onclick="playVideo('videos/video4.mp4')"
+    >
+
+        <div class="poster nature">
+            <span>
+                🌿<br>
+                NATURE<br>
+                VIDEO
+            </span>
+        </div>
+
+        <div class="card-info">
+
+            <h3>
+                Nature Video
+            </h3>
+
+            <p>
+                Nature
+            </p>
+
+        </div>
+
+    </div>
+
 
 </section>
 
 
-<!-- Video Player -->
+
+<!-- ADVERTISEMENT -->
+
+<div class="ad">
+
+    আপনার বিজ্ঞাপনের জায়গা
+
+</div>
+
+
+
+<!-- VIDEO PLAYER -->
 
 <div class="player" id="player">
 
-    <span class="close" onclick="closePlayer()">×</span>
+    <div
+        class="close"
+        onclick="closePlayer()"
+    >
+        ×
+    </div>
 
     <video
         id="videoPlayer"
@@ -270,18 +563,37 @@ footer{
         controlsList="nodownload"
         oncontextmenu="return false;"
     >
-        <source id="videoSource" src="" type="video/mp4">
+
+        <source
+            id="videoSource"
+            src=""
+            type="video/mp4"
+        >
+
     </video>
 
 </div>
 
 
+
+<!-- FOOTER -->
+
 <footer>
-    © 2026 My Video World — All Rights Reserved
+
+    © 2026
+    <strong>My Video World</strong>
+    <br><br>
+
+    All Rights Reserved
+
 </footer>
 
 
+
 <script>
+
+
+/* PLAY VIDEO */
 
 function playVideo(video){
 
@@ -305,6 +617,9 @@ function playVideo(video){
 }
 
 
+
+/* CLOSE PLAYER */
+
 function closePlayer(){
 
     const player =
@@ -315,15 +630,21 @@ function closePlayer(){
 
     videoPlayer.pause();
 
+    videoPlayer.currentTime = 0;
+
     player.style.display = "none";
 
 }
 
 
+
+/* SEARCH */
+
 function searchVideo(){
 
     let input =
-        document.getElementById("search")
+        document
+        .getElementById("search")
         .value
         .toLowerCase();
 
@@ -332,19 +653,28 @@ function searchVideo(){
 
     cards.forEach(function(card){
 
-        let title =
+        let text =
             card.innerText.toLowerCase();
 
-        if(title.includes(input)){
-            card.style.display = "block";
+        if(text.includes(input)){
+
+            card.style.display =
+                "block";
+
         }else{
-            card.style.display = "none";
+
+            card.style.display =
+                "none";
+
         }
 
     });
 
 }
 
+
+
+/* CATEGORY FILTER */
 
 function filterVideo(category){
 
@@ -354,15 +684,26 @@ function filterVideo(category){
     cards.forEach(function(card){
 
         if(category === "all"){
-            card.style.display = "block";
+
+            card.style.display =
+                "block";
+
         }
 
-        else if(card.classList.contains(category)){
-            card.style.display = "block";
+        else if(
+            card.classList.contains(category)
+        ){
+
+            card.style.display =
+                "block";
+
         }
 
         else{
-            card.style.display = "none";
+
+            card.style.display =
+                "none";
+
         }
 
     });
@@ -371,5 +712,6 @@ function filterVideo(category){
 
 </script>
 
+
 </body>
-  </html>
+</html>
