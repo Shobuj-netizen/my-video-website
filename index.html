@@ -102,20 +102,15 @@ header h1{
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-
     width:58px;
     height:58px;
-
     border-radius:50%;
     background:rgba(229,9,20,.95);
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:white;
     font-size:25px;
-
     z-index:5;
 }
 
@@ -137,15 +132,12 @@ header h1{
 .banner-ad{
     width:100%;
     min-height:70px;
-
     background:#181818;
     border:1px dashed #444;
     border-radius:8px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:#777;
     font-size:14px;
 }
@@ -185,128 +177,31 @@ header h1{
 <body>
 
 <header>
-
-    <img
-        src="logo.png"
-        class="site-logo"
-        alt="Viral Link"
-    >
-
+    <img src="logo.png" class="site-logo" alt="Viral Link">
     <h1>Viral Link</h1>
-
 </header>
 
-
 <div class="search-box">
-
     <input
         type="text"
         id="searchInput"
         placeholder="ভিডিও খুঁজুন..."
         oninput="searchVideos()"
     >
-
 </div>
-
 
 <div class="container">
 
-    <div
-        id="videoList"
-        class="video-list"
-    ></div>
+    <div id="videoList" class="video-list"></div>
 
-
-    <div
-        id="pagination"
-        class="pagination"
-    ></div>
+    <div id="pagination" class="pagination"></div>
 
 </div>
 
+<!-- ভিডিওর তালিকা -->
+<script src="videos.js"></script>
 
 <script>
-
-/* =========================
-   VIDEO LIST
-========================= */
-
-const videos = [
-
-    {
-        id:1,
-        title:"আমার প্রথম ভিডিও",
-        file:"salar1.mp4"
-    },
-
-    {
-        id:2,
-        title:"দ্বিতীয় ভিডিও",
-        file:"video2.mp4"
-    },
-
-    {
-        id:3,
-        title:"New viral",
-        file:"video3.mp4"
-    },
-
-    {
-        id:4,
-        title:"চতুর্থ ভিডিও",
-        file:""
-    },
-
-    {
-        id:5,
-        title:"পঞ্চম ভিডিও",
-        file:""
-    },
-
-    {
-        id:6,
-        title:"ষষ্ঠ ভিডিও",
-        file:""
-    },
-
-    {
-        id:7,
-        title:"সপ্তম ভিডিও",
-        file:""
-    },
-
-    {
-        id:8,
-        title:"অষ্টম ভিডিও",
-        file:""
-    },
-
-    {
-        id:9,
-        title:"নবম ভিডিও",
-        file:""
-    },
-
-    {
-        id:10,
-        title:"দশম ভিডিও",
-        file:""
-    },
-
-    {
-        id:11,
-        title:"১১ নম্বর ভিডিও",
-        file:""
-    },
-
-    {
-        id:12,
-        title:"১২ নম্বর ভিডিও",
-        file:""
-    }
-
-];
-
 
 const videosPerPage = 10;
 
@@ -315,10 +210,6 @@ let currentPage = 1;
 let filteredVideos = videos;
 
 
-/* =========================
-   SHOW VIDEOS
-========================= */
-
 function showVideos(){
 
     const list =
@@ -326,143 +217,118 @@ function showVideos(){
 
     list.innerHTML = "";
 
-
     const start =
         (currentPage - 1) * videosPerPage;
 
     const end =
         start + videosPerPage;
 
-
     const pageVideos =
         filteredVideos.slice(start,end);
 
 
-    pageVideos.forEach(
-        function(video,index){
+    pageVideos.forEach(function(video,index){
 
-            const card =
-                document.createElement("div");
+        const card =
+            document.createElement("div");
 
-            card.className = "card";
-
-
-            /* নতুন পেজে যাবে */
-
-            card.onclick =
-                function(){
-
-                    if(video.file){
-
-                        window.location.href =
-                            "watch.html?video=" +
-                            video.id;
-
-                    }
-
-                };
+        card.className = "card";
 
 
-            const thumbnail =
-                document.createElement("div");
-
-            thumbnail.className =
-                "thumbnail";
-
+        card.onclick = function(){
 
             if(video.file){
 
-                thumbnail.innerHTML = `
-
-                    <div class="placeholder">
-                        Thumbnail loading...
-                    </div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                `;
-
-
-                generateThumbnail(
-                    video.file,
-                    thumbnail
-                );
-
-            }
-            else{
-
-                thumbnail.innerHTML = `
-
-                    <div class="placeholder">
-                        Video Coming Soon
-                    </div>
-
-                `;
+                window.location.href =
+                    "watch.html?video=" +
+                    video.id;
 
             }
 
-
-            const info =
-                document.createElement("div");
-
-            info.className =
-                "card-info";
+        };
 
 
-            info.innerHTML = `
+        const thumbnail =
+            document.createElement("div");
 
-                <h3>
-                    ${video.title}
-                </h3>
+        thumbnail.className =
+            "thumbnail";
 
-                <p>
-                    Video
-                </p>
 
+        if(video.file){
+
+            thumbnail.innerHTML = `
+                <div class="placeholder">
+                    Thumbnail loading...
+                </div>
+
+                <div class="play-button">
+                    ▶
+                </div>
             `;
 
-
-            card.appendChild(thumbnail);
-
-            card.appendChild(info);
-
-            list.appendChild(card);
-
-
-            /* প্রতি ২ ভিডিও পর Ad */
-
-            if(
-                (index + 1) % 2 === 0 &&
-                index !== pageVideos.length - 1
-            ){
-
-                const ad =
-                    document.createElement("div");
-
-                ad.className =
-                    "banner-ad";
-
-                ad.innerText =
-                    "ADVERTISEMENT";
-
-                list.appendChild(ad);
-
-            }
+            generateThumbnail(
+                video.file,
+                thumbnail
+            );
 
         }
-    );
+        else{
+
+            thumbnail.innerHTML = `
+                <div class="placeholder">
+                    Video Coming Soon
+                </div>
+            `;
+
+        }
+
+
+        const info =
+            document.createElement("div");
+
+        info.className =
+            "card-info";
+
+
+        info.innerHTML = `
+            <h3>${video.title}</h3>
+            <p>Video</p>
+        `;
+
+
+        card.appendChild(thumbnail);
+
+        card.appendChild(info);
+
+        list.appendChild(card);
+
+
+        if(
+            (index + 1) % 2 === 0 &&
+            index !== pageVideos.length - 1
+        ){
+
+            const ad =
+                document.createElement("div");
+
+            ad.className =
+                "banner-ad";
+
+            ad.innerText =
+                "ADVERTISEMENT";
+
+            list.appendChild(ad);
+
+        }
+
+    });
 
 
     showPagination();
 
 }
 
-
-/* =========================
-   THUMBNAIL
-========================= */
 
 function generateThumbnail(
     file,
@@ -504,6 +370,7 @@ function generateThumbnail(
                 document.createElement("canvas");
 
             canvas.width = 640;
+
             canvas.height = 360;
 
 
@@ -546,6 +413,7 @@ function generateThumbnail(
                 play.innerText =
                     "▶";
 
+
                 container.appendChild(play);
 
             }
@@ -556,10 +424,6 @@ function generateThumbnail(
 
 }
 
-
-/* =========================
-   SEARCH
-========================= */
 
 function searchVideos(){
 
@@ -572,15 +436,13 @@ function searchVideos(){
 
 
     filteredVideos =
-        videos.filter(
-            function(video){
+        videos.filter(function(video){
 
-                return video.title
-                    .toLowerCase()
-                    .includes(text);
+            return video.title
+                .toLowerCase()
+                .includes(text);
 
-            }
-        );
+        });
 
 
     currentPage = 1;
@@ -589,10 +451,6 @@ function searchVideos(){
 
 }
 
-
-/* =========================
-   PAGINATION
-========================= */
 
 function showPagination(){
 
@@ -619,13 +477,16 @@ function showPagination(){
 
 
     for(
-        let i=1;
-        i<=totalPages;
+        let i = 1;
+        i <= totalPages;
         i++
     ){
 
         const button =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
+
 
         button.innerText = i;
 
@@ -653,16 +514,12 @@ function showPagination(){
             };
 
 
-        pagination.appendChild(
-            button
-        );
+        pagination.appendChild(button);
 
     }
 
 }
 
-
-/* START */
 
 showVideos();
 
