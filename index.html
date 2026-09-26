@@ -1,188 +1,115 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>My Video World</title>
+<title>My Video Website</title>
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
 body{
-    background:#0b0b0b;
+    margin:0;
+    background:#111;
     color:#fff;
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    font-family:Arial,sans-serif;
 }
-
-/* HEADER */
 
 header{
-    background:#151515;
-    padding:16px 5%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #292929;
-}
-
-.logo{
-    color:#e50914;
-    font-size:24px;
-    font-weight:bold;
-    line-height:1.1;
-}
-
-nav{
-    display:flex;
-    gap:18px;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    font-size:15px;
-}
-
-/* HERO */
-
-.hero{
-    padding:50px 6%;
-    background:
-    linear-gradient(90deg,#090909,#202020);
-}
-
-.hero h1{
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:#aaa;
-    line-height:1.7;
-}
-
-/* SEARCH */
-
-.search-box{
-    padding:25px 6% 10px;
-}
-
-.search-box input{
-    width:100%;
+    background:#222;
     padding:15px;
-    border:0;
-    border-radius:7px;
-    font-size:16px;
-    outline:none;
-}
-
-/* AD */
-
-.ad{
-    margin:20px 6%;
-    min-height:90px;
-    border:1px dashed #555;
-    background:#181818;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     text-align:center;
-    color:#888;
 }
 
-/* TITLE */
-
-.section-title{
-    padding:20px 6% 10px;
+header h1{
+    margin:0;
     font-size:24px;
 }
 
-/* VIDEO LIST */
-
-.video-list{
-    padding:10px 6% 30px;
+.container{
+    width:95%;
+    max-width:900px;
+    margin:auto;
 }
 
-/* VIDEO CARD */
+.search{
+    margin:15px 0;
+}
 
-.video-card{
-    background:#181818;
-    margin-bottom:15px;
+.search input{
+    width:100%;
+    padding:13px;
+    border-radius:6px;
+    border:none;
+    font-size:16px;
+}
+
+/* Video List */
+.video-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.card{
+    background:#222;
     border-radius:8px;
     overflow:hidden;
     cursor:pointer;
-    display:flex;
-    min-height:150px;
 }
 
 .thumbnail{
-    width:230px;
-    min-width:230px;
-    height:150px;
+    width:100%;
+    height:230px;
+    background:#333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
     object-fit:cover;
-    background:
-    linear-gradient(135deg,#491111,#111);
 }
 
 .placeholder{
-    width:230px;
-    min-width:230px;
-    height:150px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:
-    linear-gradient(135deg,#252525,#101010);
-    font-size:20px;
-    font-weight:bold;
+    color:#aaa;
+    font-size:18px;
 }
 
-.video-info{
-    padding:18px;
+.card-info{
+    padding:12px;
 }
 
-.video-number{
-    color:#e50914;
-    font-size:14px;
-    margin-bottom:8px;
+.card-info h3{
+    margin:0 0 6px;
+    font-size:18px;
 }
 
-.video-info h3{
-    font-size:19px;
-    margin-bottom:10px;
+.card-info p{
+    margin:0;
+    color:#aaa;
 }
 
-.video-info p{
-    color:#888;
-    font-size:14px;
-}
-
-/* PAGINATION */
-
+/* Pagination */
 .pagination{
     display:flex;
     justify-content:center;
-    align-items:center;
-    gap:8px;
-    padding:10px 6% 35px;
+    gap:7px;
+    margin:25px 0;
     flex-wrap:wrap;
 }
 
 .pagination button{
-    border:0;
-    background:#222;
+    background:#333;
     color:#fff;
-    padding:10px 15px;
+    border:none;
+    padding:9px 13px;
     border-radius:5px;
     cursor:pointer;
 }
@@ -191,91 +118,90 @@ nav a{
     background:#e50914;
 }
 
-.pagination button:hover{
-    background:#b20710;
+/* Ads */
+.ad{
+    background:#222;
+    border:1px dashed #555;
+    color:#888;
+    text-align:center;
+    padding:18px;
+    margin:15px 0;
 }
 
-/* PLAYER */
-
-.player{
+/* Player */
+#player{
     display:none;
+    background:#000;
+    padding:10px;
     position:fixed;
     inset:0;
     z-index:9999;
-    background:rgba(0,0,0,.97);
     overflow-y:auto;
-    padding:55px 5% 30px;
 }
 
-.player video{
-    width:100%;
-    max-width:1000px;
-    max-height:70vh;
-    display:block;
+.player-box{
+    max-width:900px;
     margin:auto;
+}
+
+.close-btn{
+    background:#e50914;
+    color:#fff;
+    border:none;
+    padding:10px 16px;
+    border-radius:5px;
+    cursor:pointer;
+    margin-bottom:10px;
+}
+
+#videoPlayer{
+    width:100%;
+    max-height:70vh;
     background:#000;
 }
 
-.close{
-    position:absolute;
-    right:18px;
-    top:8px;
-    color:#fff;
-    font-size:38px;
-    cursor:pointer;
+.player-title{
+    font-size:20px;
+    margin:12px 0;
 }
 
-/* PLAYER AD */
-
-.player-ad{
-    width:100%;
-    max-width:1000px;
-    min-height:70px;
-    margin:20px auto;
-    border:1px dashed #555;
-    background:#181818;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#777;
-}
-
-/* RECOMMENDED */
-
+/* Recommended */
 .recommended{
-    width:100%;
-    max-width:1000px;
-    margin:30px auto 0;
+    margin-top:20px;
 }
 
 .recommended h2{
-    font-size:22px;
-    margin-bottom:15px;
+    font-size:20px;
 }
 
-.recommend-list{
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
-    gap:12px;
+.recommended-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
 
 .recommend-card{
-    background:#181818;
-    border-radius:7px;
+    display:flex;
+    background:#222;
+    border-radius:6px;
     overflow:hidden;
     cursor:pointer;
 }
 
 .recommend-thumb{
-    height:110px;
-    background:
-    linear-gradient(135deg,#252525,#111);
+    width:130px;
+    height:80px;
+    background:#333;
+    flex-shrink:0;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    font-size:16px;
+}
+
+.recommend-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .recommend-info{
@@ -283,368 +209,191 @@ nav a{
 }
 
 .recommend-info h3{
-    font-size:14px;
+    margin:0;
+    font-size:15px;
 }
-
-/* FOOTER */
-
-footer{
-    background:#151515;
-    color:#777;
-    text-align:center;
-    padding:30px 20px;
-    margin-top:20px;
-}
-
-footer strong{
-    color:#e50914;
-}
-
-/* MOBILE */
 
 @media(max-width:600px){
 
-    header{
-        padding:15px 5%;
+    .thumbnail{
+        height:210px;
     }
 
-    .logo{
-        font-size:20px;
+    .recommend-thumb{
+        width:110px;
+        height:70px;
     }
-
-    nav{
-        gap:10px;
-    }
-
-    nav a{
-        font-size:12px;
-    }
-
-    .hero{
-        padding:40px 6%;
-    }
-
-    .hero h1{
-        font-size:27px;
-    }
-
-    .video-card{
-        min-height:110px;
-    }
-
-    .thumbnail,
-    .placeholder{
-        width:120px;
-        min-width:120px;
-        height:110px;
-    }
-
-    .placeholder{
-        font-size:14px;
-    }
-
-    .video-info{
-        padding:12px;
-    }
-
-    .video-number{
-        font-size:12px;
-    }
-
-    .video-info h3{
-        font-size:15px;
-    }
-
-    .video-info p{
-        font-size:12px;
-    }
-
-    .player{
-        padding:50px 10px 25px;
-    }
-
-    .recommend-list{
-        grid-template-columns:repeat(2,1fr);
-    }
-
 }
-
 </style>
-
 </head>
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
-    <div class="logo">
-        MY VIDEO<br>WORLD
-    </div>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#videos">Videos</a>
-    </nav>
-
+    <h1>🎬 My Video Website</h1>
 </header>
 
+<div class="container">
 
-<!-- HERO -->
+    <div class="search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="ভিডিও খুঁজুন..."
+            oninput="searchVideos()"
+        >
+    </div>
 
-<section class="hero">
+    <div class="ad">
+        Advertisement
+    </div>
 
-    <h1>
-        আপনার পছন্দের ভিডিও দেখুন
-    </h1>
+    <div id="videoList" class="video-list"></div>
 
-    <p>
-        আপনার পছন্দের ভিডিও অনলাইনে দেখুন।
-    </p>
-
-</section>
-
-
-<!-- SEARCH -->
-
-<div class="search-box">
-
-    <input
-        type="text"
-        id="search"
-        placeholder="🔍 ভিডিও খুঁজুন..."
-        onkeyup="searchVideo()"
-    >
-
-</div>
-
-
-<!-- TOP AD -->
-
-<div class="ad">
-
-    এখানে বিজ্ঞাপনের কোড বসবে
-
-</div>
-
-
-<!-- VIDEO TITLE -->
-
-<h2 class="section-title" id="videos">
-    🎬 সকল ভিডিও
-</h2>
-
-
-<!-- VIDEO LIST -->
-
-<section
-    class="video-list"
-    id="videoList"
->
-</section>
-
-
-<!-- PAGINATION -->
-
-<div
-    class="pagination"
-    id="pagination"
-></div>
-
-
-<!-- BOTTOM AD -->
-
-<div class="ad">
-
-    আপনার বিজ্ঞাপনের জায়গা
+    <div id="pagination" class="pagination"></div>
 
 </div>
 
 
 <!-- VIDEO PLAYER -->
 
-<div
-    class="player"
-    id="player"
->
+<div id="player">
 
-    <div
-        class="close"
-        onclick="closePlayer()"
-    >
-        ×
-    </div>
+    <div class="player-box">
 
+        <button class="close-btn" onclick="closePlayer()">
+            ← Back
+        </button>
 
-    <!-- PLAYER AD -->
+        <div class="ad">
+            Advertisement
+        </div>
 
-    <div
-        class="player-ad"
-        id="playerAd"
-    >
-        ভিডিও চালু হওয়ার আগে বিজ্ঞাপনের জায়গা
-    </div>
+        <div id="playerTitle" class="player-title"></div>
 
-
-    <!-- VIDEO -->
-
-    <video
-        id="videoPlayer"
-        controls
-        controlsList="nodownload"
-        oncontextmenu="return false;"
-    >
-
-        <source
-            id="videoSource"
-            src=""
-            type="video/mp4"
+        <video
+            id="videoPlayer"
+            controls
+            controlsList="nodownload"
+            oncontextmenu="return false;"
+            playsinline
         >
+            <source id="videoSource" src="" type="video/mp4">
+        </video>
 
-    </video>
+        <div class="recommended">
 
+            <h2>Recommended Videos</h2>
 
-    <!-- RECOMMENDED -->
+            <div
+                id="recommendedList"
+                class="recommended-list"
+            ></div>
 
-    <div class="recommended">
-
-        <h2>
-            ▶ Recommended Videos
-        </h2>
-
-        <div
-            class="recommend-list"
-            id="recommendList"
-        ></div>
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- FOOTER -->
-
-<footer>
-
-    © 2026
-    <strong>My Video World</strong>
-
-    <br><br>
-
-    All Rights Reserved
-
-</footer>
-
-
 <script>
 
-/* =====================================
-   VIDEO DATABASE
-   ===================================== */
+/* =========================
+   VIDEO DATA
+========================= */
 
 const videos = [
 
     {
         id:1,
         title:"আমার প্রথম ভিডিও",
-        file:"salar1.mp4",
-        image:"ami.jpg"
+        file:"salar1.mp4"
     },
 
     {
         id:2,
         title:"দ্বিতীয় ভিডিও",
-        file:"video2.mp4",
-        image:""
+        file:"video2.mp4"
     },
 
     {
         id:3,
         title:"তৃতীয় ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:4,
         title:"চতুর্থ ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:5,
         title:"পঞ্চম ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:6,
         title:"ষষ্ঠ ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:7,
         title:"সপ্তম ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:8,
         title:"অষ্টম ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:9,
         title:"নবম ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:10,
         title:"দশম ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:11,
         title:"১১ নম্বর ভিডিও",
-        file:"",
-        image:""
+        file:""
     },
 
     {
         id:12,
         title:"১২ নম্বর ভিডিও",
-        file:"",
-        image:""
+        file:""
     }
 
 ];
 
 
-/* =====================================
+/* =========================
    SETTINGS
-   ===================================== */
+========================= */
 
 const videosPerPage = 10;
 
 let currentPage = 1;
 
+let filteredVideos = videos;
 
-/* =====================================
+
+/* =========================
    SHOW VIDEOS
-   ===================================== */
+========================= */
 
 function showVideos(){
 
@@ -660,28 +409,25 @@ function showVideos(){
         start + videosPerPage;
 
     const pageVideos =
-        videos.slice(start,end);
+        filteredVideos.slice(start,end);
 
 
-    pageVideos.forEach(function(video){
+    pageVideos.forEach(video => {
 
         const card =
             document.createElement("div");
 
-        card.className =
-            "video-card";
+        card.className = "card";
 
 
         card.onclick = function(){
 
             if(video.file){
 
-                playVideo(video.file);
-
-            }else{
-
-                alert(
-                    "এই ভিডিওটি এখনো আপলোড করা হয়নি।"
+                playVideo(
+                    video.file,
+                    video.title,
+                    video.id
                 );
 
             }
@@ -689,34 +435,39 @@ function showVideos(){
         };
 
 
-        let thumbnail;
+        const thumbnail =
+            document.createElement("div");
+
+        thumbnail.className =
+            "thumbnail";
 
 
-        if(video.image){
+        /*
+          যদি ভিডিও থাকে,
+          তাহলে ভিডিও থেকেই
+          অটোমেটিক thumbnail হবে
+        */
 
-            thumbnail =
-                document.createElement("img");
+        if(video.file){
 
-            thumbnail.className =
-                "thumbnail";
+            thumbnail.innerHTML = `
+                <div class="placeholder">
+                    Thumbnail loading...
+                </div>
+            `;
 
-            thumbnail.src =
-                video.image;
-
-            thumbnail.alt =
-                video.title;
+            generateThumbnail(
+                video.file,
+                thumbnail
+            );
 
         }else{
 
-            thumbnail =
-                document.createElement("div");
-
-            thumbnail.className =
-                "placeholder";
-
-            thumbnail.innerHTML =
-                "▶<br>VIDEO " +
-                video.id;
+            thumbnail.innerHTML = `
+                <div class="placeholder">
+                    🎬 ভিডিও নেই
+                </div>
+            `;
 
         }
 
@@ -725,23 +476,13 @@ function showVideos(){
             document.createElement("div");
 
         info.className =
-            "video-info";
+            "card-info";
 
 
-        info.innerHTML =
-
-            "<div class='video-number'>" +
-            "ভিডিও #" +
-            video.id +
-            "</div>" +
-
-            "<h3>" +
-            video.title +
-            "</h3>" +
-
-            "<p>" +
-            "অনলাইনে দেখুন ▶" +
-            "</p>";
+        info.innerHTML = `
+            <h3>${video.title}</h3>
+            <p>ভিডিও</p>
+        `;
 
 
         card.appendChild(thumbnail);
@@ -758,47 +499,158 @@ function showVideos(){
 }
 
 
-/* =====================================
+/* =========================
+   AUTO THUMBNAIL
+========================= */
+
+function generateThumbnail(
+    file,
+    container
+){
+
+    const video =
+        document.createElement("video");
+
+    video.src = file;
+
+    video.muted = true;
+
+    video.playsInline = true;
+
+    video.preload = "metadata";
+
+
+    video.addEventListener(
+        "loadedmetadata",
+        function(){
+
+            let time = 1;
+
+            if(video.duration < 1){
+
+                time = 0;
+
+            }else if(video.duration < 5){
+
+                time =
+                    video.duration / 2;
+
+            }
+
+
+            video.currentTime = time;
+
+        }
+    );
+
+
+    video.addEventListener(
+        "seeked",
+        function(){
+
+            const canvas =
+                document.createElement("canvas");
+
+
+            canvas.width =
+                video.videoWidth;
+
+            canvas.height =
+                video.videoHeight;
+
+
+            const ctx =
+                canvas.getContext("2d");
+
+
+            ctx.drawImage(
+                video,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+
+            const image =
+                document.createElement("img");
+
+
+            image.src =
+                canvas.toDataURL("image/jpeg",0.8);
+
+
+            image.alt =
+                "Video Thumbnail";
+
+
+            container.innerHTML = "";
+
+            container.appendChild(image);
+
+
+            video.remove();
+
+        },
+        {
+            once:true
+        }
+    );
+
+
+    video.addEventListener(
+        "error",
+        function(){
+
+            container.innerHTML = `
+                <div class="placeholder">
+                    🎬 Thumbnail
+                </div>
+            `;
+
+        }
+    );
+
+}
+
+
+/* =========================
    PAGINATION
-   ===================================== */
+========================= */
 
 function showPagination(){
 
     const pagination =
-        document.getElementById("pagination");
+        document.getElementById(
+            "pagination"
+        );
 
     pagination.innerHTML = "";
 
+
     const totalPages =
         Math.ceil(
-            videos.length /
+            filteredVideos.length /
             videosPerPage
         );
 
 
-    if(totalPages <= 1){
-
-        return;
-
-    }
-
-
     for(
-        let i = 1;
-        i <= totalPages;
+        let i=1;
+        i<=totalPages;
         i++
     ){
 
         const button =
             document.createElement("button");
 
+
         button.innerText = i;
 
 
         if(i === currentPage){
 
-            button.className =
-                "active";
+            button.classList.add("active");
 
         }
 
@@ -824,37 +676,62 @@ function showPagination(){
 }
 
 
-/* =====================================
+/* =========================
    PLAY VIDEO
-   ===================================== */
+========================= */
 
-function playVideo(video){
+function playVideo(
+    file,
+    title,
+    id
+){
 
     const player =
-        document.getElementById("player");
+        document.getElementById(
+            "player"
+        );
+
 
     const videoPlayer =
-        document.getElementById("videoPlayer");
+        document.getElementById(
+            "videoPlayer"
+        );
+
 
     const source =
-        document.getElementById("videoSource");
+        document.getElementById(
+            "videoSource"
+        );
 
 
-    source.src =
-        video;
+    const playerTitle =
+        document.getElementById(
+            "playerTitle"
+        );
 
+
+    source.src = file;
 
     videoPlayer.load();
+
+
+    playerTitle.innerText =
+        title;
 
 
     player.style.display =
         "block";
 
 
+    showRecommended(id);
+
+
     if(location.hash !== "#video"){
 
         history.pushState(
-            {videoPlayer:true},
+            {
+                videoPlayer:true
+            },
             "",
             "#video"
         );
@@ -862,32 +739,35 @@ function playVideo(video){
     }
 
 
-    videoPlayer.play().catch(function(error){
+    videoPlayer.play()
+        .catch(function(error){
 
-        console.log(
-            "Video play error:",
-            error
-        );
+            console.log(
+                "Video play error:",
+                error
+            );
 
-    });
-
-
-    showRecommended();
+        });
 
 }
 
 
-/* =====================================
-   CLOSE VIDEO
-   ===================================== */
+/* =========================
+   CLOSE PLAYER
+========================= */
 
 function closePlayer(){
 
     const player =
-        document.getElementById("player");
+        document.getElementById(
+            "player"
+        );
+
 
     const videoPlayer =
-        document.getElementById("videoPlayer");
+        document.getElementById(
+            "videoPlayer"
+        );
 
 
     videoPlayer.pause();
@@ -907,19 +787,24 @@ function closePlayer(){
 }
 
 
-/* =====================================
+/* =========================
    ANDROID BACK BUTTON
-   ===================================== */
+========================= */
 
 window.addEventListener(
     "popstate",
     function(){
 
         const player =
-            document.getElementById("player");
+            document.getElementById(
+                "player"
+            );
+
 
         const videoPlayer =
-            document.getElementById("videoPlayer");
+            document.getElementById(
+                "videoPlayer"
+            );
 
 
         if(
@@ -940,99 +825,85 @@ window.addEventListener(
 );
 
 
-/* =====================================
+/* =========================
    RECOMMENDED VIDEOS
-   ===================================== */
+========================= */
 
-function showRecommended(){
+function showRecommended(
+    currentId
+){
 
     const list =
         document.getElementById(
-            "recommendList"
+            "recommendedList"
         );
 
 
     list.innerHTML = "";
 
 
-    /*
-       এখন প্রথম কয়েকটি ভিডিও
-       Recommended হিসেবে দেখাবে।
-    */
-
     const recommended =
-        videos.slice(0,6);
+        videos
+        .filter(video =>
+            video.id !== currentId &&
+            video.file
+        )
+        .slice(0,6);
 
 
-    recommended.forEach(function(video){
+    recommended.forEach(video => {
 
         const card =
             document.createElement("div");
+
 
         card.className =
             "recommend-card";
 
 
-        card.onclick =
-            function(){
+        card.onclick = function(){
 
-                if(video.file){
+            playVideo(
+                video.file,
+                video.title,
+                video.id
+            );
 
-                    playVideo(
-                        video.file
-                    );
-
-                }else{
-
-                    alert(
-                        "এই ভিডিওটি এখনো আপলোড করা হয়নি।"
-                    );
-
-                }
-
-            };
+        };
 
 
         const thumb =
             document.createElement("div");
 
+
         thumb.className =
             "recommend-thumb";
 
 
-        if(video.image){
+        thumb.innerHTML = `
+            <div class="placeholder">
+                🎬
+            </div>
+        `;
 
-            thumb.style.backgroundImage =
-                "url('" +
-                video.image +
-                "')";
 
-            thumb.style.backgroundSize =
-                "cover";
-
-            thumb.style.backgroundPosition =
-                "center";
-
-        }else{
-
-            thumb.innerHTML =
-                "▶ VIDEO " +
-                video.id;
-
-        }
+        generateThumbnail(
+            video.file,
+            thumb
+        );
 
 
         const info =
             document.createElement("div");
 
+
         info.className =
             "recommend-info";
 
 
-        info.innerHTML =
-            "<h3>" +
-            video.title +
-            "</h3>";
+        info.innerHTML = `
+            <h3>${video.title}</h3>
+        `;
 
 
         card.appendChild(thumb);
@@ -1046,58 +917,42 @@ function showRecommended(){
 }
 
 
-/* =====================================
+/* =========================
    SEARCH
-   ===================================== */
+========================= */
 
-function searchVideo(){
+function searchVideos(){
 
-    const input =
-        document
-        .getElementById("search")
+    const search =
+        document.getElementById(
+            "searchInput"
+        )
         .value
         .toLowerCase();
 
 
-    const cards =
-        document.querySelectorAll(
-            ".video-card"
+    filteredVideos =
+        videos.filter(video =>
+            video.title
+            .toLowerCase()
+            .includes(search)
         );
 
 
-    cards.forEach(function(card){
+    currentPage = 1;
 
-        const text =
-            card.innerText.toLowerCase();
-
-
-        if(
-            text.includes(input)
-        ){
-
-            card.style.display =
-                "flex";
-
-        }else{
-
-            card.style.display =
-                "none";
-
-        }
-
-    });
+    showVideos();
 
 }
 
 
-/* =====================================
+/* =========================
    START
-   ===================================== */
+========================= */
 
 showVideos();
 
 </script>
-
 
 </body>
 </html>
